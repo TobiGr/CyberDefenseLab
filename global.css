@@ -1,0 +1,140 @@
+html, body {
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    margin: 0;
+    padding: 20px;
+}
+body.sticky-footer {
+    display: grid;
+    grid-template-areas: "header" "content" "footer";
+    grid-auto-rows: auto 1fr auto;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #007bff;
+}
+
+pre {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.info {
+    background: #f4f4f4;
+    padding: 15px;
+    border-left: 4px solid #007bff;
+    margin-bottom: 20px;
+}
+
+.console {
+    background: #000;
+    color: #0f0;
+    font-family: monospace;
+    padding: 15px;
+    border-radius: 5px;
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #0056b3;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #28a745, #32CD32);
+    color: #fff;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: transform 0.2s, background 0.2s;
+}
+.back-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #218838, #1e7e34);
+}
+
+.task {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: calc(100% - 22px);
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.flag {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.nav {
+    display: block;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.nav-buttons {
+    position: absolute;
+    font-size: 150%;
+}
+.nav-button {
+    text-decoration: none;
+}
+
+.progress-bar {
+    height: 25px;
+    line-height: 25px;
+    background: #007bff;
+    width: 0%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    transition: width 0.5s ease-in-out;
+}

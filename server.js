@@ -76,7 +76,10 @@ const server = http.createServer((req, res) => {
          } else if (req.url === '/geheim.html') {
             // geheim-Seite ausliefern
             serveFile('geheim.html', res);
-         } else {
+        } else if (req.url === '/global.css') {
+            // geheim-Seite ausliefern
+            serveFile('global.css', res, "text/css");
+        } else {
             // 404-Seite
             res.statusCode = 404;
             res.setHeader('Content-Type', 'text/plain');
@@ -111,14 +114,14 @@ const server = http.createServer((req, res) => {
 });
 
 // Funktion zum Ausliefern von HTML-Dateien
-function serveFile(filename, res) {
+function serveFile(filename, res, mimeType = 'text/html') {
     fs.readFile(filename, (err, data) => {
         if (err) {
             res.statusCode = 500;
             res.end('Fehler beim Laden der Seite!');
         } else {
             res.statusCode = 200;
-            res.setHeader('Content-Type', 'text/html');
+            res.setHeader('Content-Type', mimeType);
             res.end(data);
         }
     });

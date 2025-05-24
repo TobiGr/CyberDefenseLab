@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brute-Force-Demo</title>
+  <link rel="stylesheet" href="global.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -91,7 +92,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>Brute-Force-Demo</h1>
+    <div class="nav">
+      <div class="nav-buttons">
+        <a href="./index.html" class="nav-button" title="Zurück zur Startseite">⮜</a>
+      </div>
+      <div class="nav-title">
+        <h1>Brute-Force-Demo</h1>
+      </div>
+    </div>
+
     <p>
       Ein <strong>Brute-Force-Angriff</strong> versucht, durch das automatische Ausprobieren vieler Passwörter den richtigen Zugang zu finden. Dabei werden oft <strong>Passwortlisten</strong> verwendet – Sammlungen, die häufig genutzte oder geleakte Passwörter enthalten.
     </p>
@@ -101,12 +110,12 @@
     <p>
       <strong>Hinweis:</strong> Verwende als Ziel-Benutzernamen entweder <em>admin</em> oder <em>user</em>.
     </p>
-    
+
     <h2>Simulation starten</h2>
     <input type="text" id="targetUsername" placeholder="Gib admin oder user ein">
     <button onclick="startSimulation()">Simulation starten</button>
     <div class="shell" id="simulation"></div>
-    
+
     <h2>Login</h2>
     <p>
       Versuche, dich einzuloggen, indem du einen der beiden Benutzernamen (admin oder user) und das dazugehörige Passwort eingibst.

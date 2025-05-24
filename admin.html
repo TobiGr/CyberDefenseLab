@@ -4,30 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geheime Flag</title>
+    <link rel="stylesheet" href="global.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: calc(100vh - 40px);
             color: #333;
         }
         .container {
             text-align: center;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            font-size: 2rem;
-            color: #007bff;
         }
         p {
             font-size: 1.2rem;
+            line-height: 3rem;
+            display: flex;
         }
         .emoji {
             font-size: 3rem;
@@ -36,8 +28,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Geheime Flag</h1>
-        <p>Du Fuchs! {FLAG_ADMIN_OVERRIDE} <span class="emoji">🦊</span></p>
+        <div class="nav">
+            <div class="nav-buttons">
+                <a href="./index.html" class="nav-button" title="Zurück zur Startseite">⮜</a>
+            </div>
+            <div class="nav-title">
+                <h1>Geheime Flag</h1>
+            </div>
+        </div>
+
+        <p>
+            <span>Du Fuchs! {FLAG_ADMIN_OVERRIDE}</span>
+            <span class="emoji">🦊</span>
+        </p>
     </div>
 </body>
 </html>

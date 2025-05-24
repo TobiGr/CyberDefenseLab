@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontaktformular - CyberDefense Lab</title>
+    <link rel="stylesheet" href="global.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #2c3e50, #4ca1af);
             color: #fff;
-            margin: 0;
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,6 +24,7 @@
             text-align: center;
         }
         h2 {
+            text-align: left;
             color: #007bff;
             margin-bottom: 15px;
         }
@@ -118,7 +116,7 @@
     <script>
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            
+
             document.getElementById("responseMessage").style.display = "block";
 
             // Simulierte unsichere Debugging-Daten

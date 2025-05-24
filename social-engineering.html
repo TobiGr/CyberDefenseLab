@@ -419,21 +419,21 @@
         ]
       }
     ];
-    
+
     let currentScenarioIndex = 0;
     let currentStepIndex = 0;
-    
+
     const chatWindow = document.getElementById("chat-window");
     const choicesContainer = document.getElementById("choices-container");
     const flagContainer = document.getElementById("flag-container");
     const additionalInfo = document.getElementById("additional-info");
     const backButtonContainer = document.getElementById("back-button-container");
-    
+
     function clearChat() {
       chatWindow.innerHTML = "";
       choicesContainer.innerHTML = "";
     }
-    
+
     // Fügt eine Chatnachricht hinzu.
     function appendMessage(sender, text, className = "message") {
       const msgDiv = document.createElement("div");
@@ -442,7 +442,7 @@
       chatWindow.appendChild(msgDiv);
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
-    
+
     // Zeigt Antwortmöglichkeiten an und mischt diese zufällig.
     function displayChoices(choices) {
       choicesContainer.innerHTML = "";
@@ -459,7 +459,7 @@
         choicesContainer.appendChild(btn);
       });
     }
-    
+
     // Verarbeitung für Standard-Szenarien.
     function handleChoice(choice) {
       appendMessage("Du", choice.text, "message du");
@@ -472,7 +472,7 @@
         setTimeout(nextScenario, 5000);
       }, 3000);
     }
-    
+
     // Verarbeitet die nächsten Schritte im aktuellen Szenario.
     function processStep() {
       const scenario = scenarios[currentScenarioIndex];
@@ -487,7 +487,7 @@
         currentStepIndex++;
       }
     }
-    
+
     // Wechselt zum nächsten Szenario oder zeigt am Ende die Flag und den Back-Button.
     function nextScenario() {
       currentScenarioIndex++;
@@ -504,12 +504,12 @@
         backButtonContainer.style.display = "block";
       }
     }
-    
+
     function loadScenario() {
       clearChat();
       processStep();
     }
-    
+
     window.onload = loadScenario;
   </script>
 </body>

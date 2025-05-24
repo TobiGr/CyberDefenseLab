@@ -4,25 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hashing und Rainbow Tables Lab</title>
+  <link rel="stylesheet" href="global.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
-      margin: 0;
-      padding: 20px;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    h1, h2 {
-      text-align: center;
-      color: #007bff;
-    }
     /* Angepasste Info-Box-Styles ohne linken Streifen */
     .info {
       background: linear-gradient(135deg, #eef2f3, #f9fafb);
@@ -31,50 +14,14 @@
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    pre {
-      background: #f9f9f9;
-      padding: 15px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      color: #333;
-    }
     .steps {
       margin-top: 20px;
     }
     .btn {
       display: inline-block;
       padding: 10px 15px;
-      background: #007bff;
-      color: white;
       text-decoration: none;
-      border-radius: 5px;
       margin-top: 10px;
-      text-align: center;
-    }
-    .btn:hover {
-      background: #0056b3;
-    }
-    .hidden {
-      display: none;
-    }
-    /* Neuer Back-Button im grünen Stil */
-    .back-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: linear-gradient(45deg, #28a745, #32CD32);
-      color: #fff;
-      text-align: center;
-      border: none;
-      border-radius: 5px;
-      margin-top: 20px;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 16px;
-      transition: transform 0.2s, background 0.2s;
-    }
-    .back-button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(45deg, #218838, #1e7e34);
     }
   </style>
 </head>
@@ -83,12 +30,12 @@
     <div class="info">
       <h2>Was sind Hashes und wie funktionieren sie?</h2>
       <p>
-        Ein <strong>Hash</strong> ist das Ergebnis einer kryptografischen <strong>Hashfunktion</strong>. Diese nimmt eine beliebig große Eingabe 
-        (z. B. eine Datei oder ein Passwort) und berechnet daraus eine <strong>Zeichenkette mit fester Länge</strong>.  
+        Ein <strong>Hash</strong> ist das Ergebnis einer kryptografischen <strong>Hashfunktion</strong>. Diese nimmt eine beliebig große Eingabe
+        (z. B. eine Datei oder ein Passwort) und berechnet daraus eine <strong>Zeichenkette mit fester Länge</strong>.
         Hashfunktionen sind <strong>Einwegfunktionen</strong>, das bedeutet, der ursprüngliche Wert kann nicht aus dem Hash zurückberechnet werden.
       </p>
       <p>
-        Zum Beispiel erzeugt der Algorithmus <strong>SHA-256</strong> (Secure Hash Algorithm 256) einen <strong>256-Bit-Hash</strong>, der 
+        Zum Beispiel erzeugt der Algorithmus <strong>SHA-256</strong> (Secure Hash Algorithm 256) einen <strong>256-Bit-Hash</strong>, der
         als <strong>64 Zeichen lange Hexadezimalzeichenkette</strong> dargestellt wird.
       </p>
     </div>
@@ -97,18 +44,18 @@
       <h3>Wozu werden Hashes verwendet?</h3>
       <ul>
         <li>
-          <strong>Speichern von Passwörtern:</strong>  
-          Statt Passwörter im Klartext zu speichern, wird ihr Hashwert gespeichert.  
-          Beim Anmeldevorgang wird das eingegebene Passwort erneut gehasht und mit dem gespeicherten Wert verglichen.  
+          <strong>Speichern von Passwörtern:</strong>
+          Statt Passwörter im Klartext zu speichern, wird ihr Hashwert gespeichert.
+          Beim Anmeldevorgang wird das eingegebene Passwort erneut gehasht und mit dem gespeicherten Wert verglichen.
           Dadurch sieht ein Angreifer, der eine Datenbank stiehlt, nur die Hashes – nicht die echten Passwörter.
         </li>
         <li>
-          <strong>Integritätsprüfung:</strong>  
-          Bereits eine minimale Änderung der Eingabe führt zu einem völlig anderen Hashwert (<strong>Avalanche-Effekt</strong>).  
+          <strong>Integritätsprüfung:</strong>
+          Bereits eine minimale Änderung der Eingabe führt zu einem völlig anderen Hashwert (<strong>Avalanche-Effekt</strong>).
           Dies wird genutzt, um Dateien oder Nachrichten auf Manipulationen zu prüfen.
         </li>
         <li>
-          <strong>Digitale Signaturen und Authentifizierung:</strong>  
+          <strong>Digitale Signaturen und Authentifizierung:</strong>
           Hashes werden in der Kryptographie verwendet, um Daten sicher zu verifizieren und Identitäten zu bestätigen.
         </li>
       </ul>
@@ -117,19 +64,19 @@
     <div class="info">
       <h3>Schwachstellen: Rainbow Tables und Hash-Kollisionen</h3>
       <p>
-        Obwohl Hashes ein starkes Sicherheitsmerkmal sind, gibt es Angriffsmethoden wie <strong>Rainbow Tables</strong>.  
-        Dabei handelt es sich um vorberechnete Tabellen mit gängigen Passwörtern und deren Hashes.  
-        Ein Angreifer kann einen gestohlenen Hash mit diesen Tabellen abgleichen, um das ursprüngliche Passwort zu ermitteln.  
+        Obwohl Hashes ein starkes Sicherheitsmerkmal sind, gibt es Angriffsmethoden wie <strong>Rainbow Tables</strong>.
+        Dabei handelt es sich um vorberechnete Tabellen mit gängigen Passwörtern und deren Hashes.
+        Ein Angreifer kann einen gestohlenen Hash mit diesen Tabellen abgleichen, um das ursprüngliche Passwort zu ermitteln.
         Besonders <strong>schwache oder häufig verwendete Passwörter</strong> (z. B. "123456") sind leicht zu knacken.
       </p>
       <p>
-        Um dies zu verhindern, wird ein <strong>Salt</strong> eingesetzt. Dabei wird vor dem Hashing eine zufällige Zeichenkette an das Passwort angehängt.  
-        Selbst wenn zwei Benutzer dasselbe Passwort haben, ergibt sich durch das Salt ein unterschiedlicher Hashwert.  
+        Um dies zu verhindern, wird ein <strong>Salt</strong> eingesetzt. Dabei wird vor dem Hashing eine zufällige Zeichenkette an das Passwort angehängt.
+        Selbst wenn zwei Benutzer dasselbe Passwort haben, ergibt sich durch das Salt ein unterschiedlicher Hashwert.
         Dadurch werden Rainbow Tables wirkungslos.
       </p>
       <p>
-        Eine weitere potenzielle Schwäche sind <strong>Hash-Kollisionen</strong>.  
-        Dabei erzeugen zwei verschiedene Eingaben denselben Hash.  
+        Eine weitere potenzielle Schwäche sind <strong>Hash-Kollisionen</strong>.
+        Dabei erzeugen zwei verschiedene Eingaben denselben Hash.
         Moderne Hashfunktionen wie SHA-256 sind so konzipiert, dass solche Kollisionen extrem unwahrscheinlich sind.
       </p>
     </div>
@@ -164,8 +111,8 @@ Eingabe in CyberChef: password1232023
 Hashing-Methode: MD5
       </pre>
       <p>
-        Finde den MD5-Hash mit 
-        <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">CyberChef</a> 
+        Finde den MD5-Hash mit
+        <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">CyberChef</a>
         und gib ihn ein, um deine Flag zu erhalten:
         Kannst du auch diesen neuen Hash mit <a href="https://crackstation.net" target="_blank">Crackstation</a> knacken?
       </p>
