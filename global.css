@@ -124,7 +124,8 @@ input[type="text"] {
     position: absolute;
     font-size: 150%;
 }
-.nav-button {
+.nav-button,
+.nav-button:hover {
     text-decoration: none;
 }
 
