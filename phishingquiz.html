@@ -190,8 +190,8 @@
     <h2>Was ist Phishing?</h2>
     <p>
       Phishing ist ein Betrugsversuch, bei dem Angreifer versuchen, persönliche Informationen wie Passwörter,
-      Kreditkartendaten oder andere vertrauliche Daten zu stehlen. Sie nutzen dazu gefälschte E-Mails oder 
-      Webseiten, die seriösen Anbietern täuschend ähnlich sehen. Häufig wird in solchen E-Mails Druck ausgeübt, 
+      Kreditkartendaten oder andere vertrauliche Daten zu stehlen. Sie nutzen dazu gefälschte E-Mails oder
+      Webseiten, die seriösen Anbietern täuschend ähnlich sehen. Häufig wird in solchen E-Mails Druck ausgeübt,
       z. B. durch die Androhung einer Kontosperrung oder die Behauptung, du hättest etwas gewonnen.
     </p>
     <h3>Wie erkennt man Phishing?</h3>
@@ -219,9 +219,9 @@
     </div>
     <div id="result" class="result hidden"></div>
     <div id="info-text">
-      Hinweis: Auch wenn der Absender auf den ersten Blick seriös erscheint, können E-Mails gefälscht sein (Spoofing). 
-      Spoofing bedeutet, dass Angreifer die Absenderinformationen fälschen, sodass es so aussieht, als käme die E-Mail 
-      von einer vertrauenswürdigen Quelle. Zum Schutz vor Spoofing solltest du niemals direkt auf Links in E-Mails klicken, sondern 
+      Hinweis: Auch wenn der Absender auf den ersten Blick seriös erscheint, können E-Mails gefälscht sein (Spoofing).
+      Spoofing bedeutet, dass Angreifer die Absenderinformationen fälschen, sodass es so aussieht, als käme die E-Mail
+      von einer vertrauenswürdigen Quelle. Zum Schutz vor Spoofing solltest du niemals direkt auf Links in E-Mails klicken, sondern
       die offizielle Webseite manuell in deinem Browser eingeben.
     </div>
     <!-- Der Home-Button, der erst nach Abschluss des Quiz angezeigt wird -->
@@ -285,7 +285,7 @@
         {
           sender: "helpdesk@university.edu",
           subject: "Wichtige Sicherheitsaktualisierung",
-          body: "Sehr geehrte/r Studierende/r,<br><br>Ihr Passwort läuft in Kürze ab. Um den kontinuierlichen Zugriff auf Ihr Universitätskonto zu gewährleisten, bitten wir Sie, Ihr Passwort umgehend zu aktualisieren. Klicken Sie dazu bitte auf folgenden Link: <a href='http://university-support.com'>Hier klicken</a>.<br><br>Bei Fragen wenden Sie sich bitte an unseren Helpdesk.",
+          body: "Sehr geehrte/r Studierende/r,<br><br>Ihr Passwort läuft in Kürze ab. Um den kontinuierlichen Zugriff auf Ihr Universitätskonto zu gewährleisten, bitten wir Sie, Ihr Passwort umgehend zu aktualisieren.<br><br>Klicken Sie dazu bitte auf folgenden Link: <a href='http://university-support.com'>Hier klicken</a>.<br><br>Bei Fragen wenden Sie sich bitte an unseren Helpdesk.",
           isPhishing: true,
           explanation: "Phishing: Der Absender täuscht eine offizielle Universitätsadresse vor, der Link passt jedoch nicht zur echten Domain."
         },
@@ -325,28 +325,28 @@
           explanation: "Phishing: Die E-Mail gibt vor, von einer Bank zu stammen, verwendet jedoch die Domain 'fraud-check.net', welche nicht zur offiziellen Bank gehört."
         }
       ];
-      
+
       let currentEmailIndex = 0;
       let correctAnswers = 0;
-      
+
       function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [array[i], array[j]] = [array[j], array[i]];
         }
       }
-      
+
       function setupQuiz() {
         shuffle(emailPool);
         loadEmail();
       }
-      
+
       function updateProgressBar() {
         const progress = ((currentEmailIndex / emailPool.length) * 100).toFixed(0);
         document.getElementById("progress-bar").style.width = `${progress}%`;
         document.getElementById("progress-bar").textContent = `${progress}%`;
       }
-      
+
       function loadEmail() {
         if (currentEmailIndex >= emailPool.length) {
           endQuiz();
@@ -355,23 +355,23 @@
         const email = emailPool[currentEmailIndex];
         document.getElementById("email-header").textContent = `Von: ${email.sender} | Betreff: ${email.subject}`;
         document.getElementById("email-body").innerHTML = email.body;
-        
+
         updateProgressBar();
       }
-      
+
       function checkAnswer(isPhishing) {
         // Deaktivieren der Buttons, um Mehrfachklicks zu verhindern
         document.getElementById("phishing-btn").disabled = true;
         document.getElementById("not-phishing-btn").disabled = true;
-        
+
         const email = emailPool[currentEmailIndex];
         const explanationDiv = document.getElementById("explanation");
-        
+
         if (email.isPhishing === isPhishing) correctAnswers++;
-        
+
         explanationDiv.textContent = email.explanation;
         explanationDiv.style.display = "block";
-        
+
         setTimeout(() => {
           explanationDiv.style.display = "none";
           currentEmailIndex++;
@@ -385,13 +385,13 @@
           document.getElementById("not-phishing-btn").disabled = false;
         }, 4000);
       }
-      
+
       function endQuiz() {
         updateProgressBar();
         document.getElementById("quiz-content").style.display = "none";
         const result = document.getElementById("result");
-        result.textContent = correctAnswers === emailPool.length 
-          ? "Herzlichen Glückwunsch! Du hast alle richtig beantwortet. 🎉 Flag: {CAUGHT_ALL_THE_PHISH}" 
+        result.textContent = correctAnswers === emailPool.length
+          ? "Herzlichen Glückwunsch! Du hast alle richtig beantwortet. 🎉 Flag: {CAUGHT_ALL_THE_PHISH}"
           : `Du hast ${correctAnswers} von ${emailPool.length} richtig beantwortet.`;
         result.classList.remove("hidden");
         // Infotext anzeigen
@@ -399,9 +399,9 @@
         // Home-Button anzeigen
         document.getElementById("home-button").style.display = "block";
       }
-      
+
       setupQuiz();
-      
+
       document.getElementById("phishing-btn").addEventListener("click", () => checkAnswer(true));
       document.getElementById("not-phishing-btn").addEventListener("click", () => checkAnswer(false));
     });
@@ -409,5 +409,5 @@
 </body>
 </html>
 
-      
+
 
