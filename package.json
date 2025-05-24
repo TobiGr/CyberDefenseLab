@@ -4,8 +4,11 @@
   "description": "Eine einfache Node.js-App für Render",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "rm -r _site && npx @11ty/eleventy && cd _site && node server.js"
   },
   "author": "Rampe89",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.0"
+  }
 }
