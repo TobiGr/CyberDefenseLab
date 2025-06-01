@@ -546,10 +546,7 @@
       if (input.value === decoded) {
         alertDialog(`Richtig! Flag für Aufgabe ${taskNumber} akzeptiert: ${decoded}`);
         collectedFlags[taskNumber - 1] = true;
-        input.disabled = true;
-        checkButton.disabled = true;
-        checkButton.setAttribute('disabled', '');
-        checkButton.onclick = null; // Deaktiviert den Button
+        updateTaskUi(input, checkButton);
         displayAchievement(displayTitle);
         saveFlags();
         updateProgress();
@@ -632,20 +629,26 @@
     }
     function updateUI() {
       for (let i = 1; i <= 12; i++) {
-        const el = document.getElementById(`flag${i}`);
-        if (el && collectedFlags[i - 1]) {
-          el.disabled = true;
-          if (el.value.length == 0) {
-            let flag = el.parentElement.querySelector('button[onclick]').onclick.toString()
-                    .match(/checkFlag\(\d+,\s?'([a-zA-Z0-9=]+)',.+\)/)[1]
-            el.value = atob(flag);
-          }
-          const checkButton = el.parentElement.querySelector('button');
-          if (checkButton) {
-            checkButton.disabled = true;
-            checkButton.setAttribute('disabled', '');
-          }
+        const inputEl = document.getElementById(`flag${i}`);
+        if (inputEl && collectedFlags[i - 1]) {
+          const checkButtonEl = inputEl.parentElement.querySelector('button');
+          updateTaskUi(inputEl, checkButtonEl)
         }
+      }
+    }
+    function updateTaskUi(input, checkButton) {
+      if (input) {
+        input.disabled = true;
+        if (input.value.length === 0) {
+          let flag = input.parentElement.querySelector('button[onclick]').onclick.toString()
+                  .match(/checkFlag\(\d+,\s?'([a-zA-Z0-9=]+)',.+\)/)[1]
+          input.value = atob(flag);
+        }
+      }
+      if (checkButton) {
+        checkButton.disabled = true;
+        checkButton.setAttribute('disabled', '');
+        checkButton.onclick = null;
       }
     }
     function displayAchievement(title) {
