@@ -68,7 +68,7 @@ const server = http.createServer((req, res) => {
             // DSchutzinteraktiv-Seite ausliefern
             serveFile('datenschutz2.html', res);
          } else if (req.url === '/robot.html') {
-            // Rbobot-Seite ausliefern
+            // Robot-Seite ausliefern
             serveFile('robot.html', res);
          } else if (req.url === '/about.html') {
             // about-Seite ausliefern
@@ -79,6 +79,8 @@ const server = http.createServer((req, res) => {
         } else if (req.url === '/global.css') {
             // geheim-Seite ausliefern
             serveFile('global.css', res, "text/css");
+        } else if (req.url === '/confetti.browser.min.js') {
+            serveFile('confetti.browser.min.js', res, "text/javascript");
         } else {
             // 404-Seite
             res.statusCode = 404;
