@@ -1,4 +1,4 @@
-export default function(eleventyConfig) {
+module.exports = async function(eleventyConfig) {
     // Behalte die Originaldateinamen bei und erstelle keine Verzeichnisse für die Seiten
     eleventyConfig.addGlobalData("permalink", () => {
         return (data) =>
