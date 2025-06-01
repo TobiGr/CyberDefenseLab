@@ -65,6 +65,70 @@ Render generiert eine öffentliche URL, über die das Lab zugänglich ist.
 
 ---
 
+## Hosting auf Debian/Ubuntu Server
+
+### 1. Repository auf Server clonen
+`git clone https://github.com/TobiGr/CyberDefenseLab cyberdefenselab`
+
+### 2. Proxy einrichten
+Ein Proxy muss eingerichtet werden, damit Anfragen an die Ports 80 bzw. 443 auf den genutzten Port 3000 weitergeleitet werden.
+Hierfür können bspw. Apache2 oder nginx genutzt werden.
+1. Proxy-Modul aktivieren:  
+`sudo a2enmod proxy`  
+`sudo a2enmod proxy_http`
+2. Apache2 Seitenkonfiguration bearbeiten (`/etc/apache2/sites-available/YOUR_SITE.conf`) und Konfiguration für Proxy hinzufügen:
+```conf
+<VirtualHost *:443>
+    # ...
+    SSLProxyEngine On
+    ProxyPreserveHost On
+    ProxyPass / http://localhost:3000/
+    ProxyPassReverse / http://localhost:3000/
+    # ...
+</VirtualHost>
+```
+3. Apache2 neustarten: `sudo systemctl restart apache2.service`
+
+### 3. Service erstellen
+1. Neue Datei für Service anlegen
+`nano /etc/systemd/system/cyber-defense-lab.service`
+2. Datei mit Inhalt befüllen
+```service
+[Unit]
+Description=Node.js Server providing the Cyber Defense Lab
+After=network.target
+
+[Service]
+WorkingDirectory=/PATH/TO/cyberdefenselab
+ExecStart=/usr/bin/npm run start
+Restart=always
+User=NORMAL_USER
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
+```
+3. Service verfügbar machen: `sudo systemctl daemon-reload`
+4. Service starten: `sudo systemctl start cyber-defense-lab.service`
+
+### 4. Skript zum Aktualisieren des Labs einrichten (optional)
+```
+# /usr//bin/bash
+# Aktualisiert die lokale Version des Cyber Defense Lab
+
+# 1. Lokales Repository aktualieren
+cd cyberdefenselab
+git pull
+
+# 2. Service neustarten
+sudo systemctl restart cyber-defense-lab.service
+
+# 3. Status überprüfen
+sudo systemctl status cyber-defense-lab.service
+```
+
+---
+
 ## Ergänzungen
 ### Flags und Achievements
 - Jede Lab-Aufgabe ist mit einer Flag verknüpft, die korrekt eingegeben werden muss.
