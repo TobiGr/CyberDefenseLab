@@ -4,8 +4,8 @@
   "description": "Eine einfache Node.js-App für Render",
   "main": "server.js",
   "scripts": {
-    "start": "rm -r _site && npx @11ty/eleventy && cd _site && node server.js",
-    "serve": "rm -r _site && npx @11ty/eleventy --serve",
+    "start": "rm -rf _site && npx @11ty/eleventy && cd _site && node server.js",
+    "serve": "rm -rf _site && npx @11ty/eleventy --serve",
     "server": "cd _site && node server.js"
   },
   "author": "Rampe89",
