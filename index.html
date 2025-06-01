@@ -116,6 +116,25 @@
     .btn:hover {
       background-color: #0056b3;
     }
+    .task .btn {
+      width: 100%;
+      text-align: center;
+    }
+    .task button.btn {
+      background: forestgreen;
+    }
+    .task button.btn:hover {
+      background: #065b06;
+    }
+    .task button.btn:disabled {
+      background: #565c56;
+      cursor: initial;
+    }
+    .task a.btn {
+      display: block;
+      box-sizing: border-box;
+    }
+
     input[type="text"], input[type="password"] {
       margin-top: 10px;
       padding: 5px;
@@ -521,11 +540,16 @@
     function checkFlag(taskNumber, encodedFlag, displayTitle) {
       const input = document.getElementById(`flag${taskNumber}`);
       if (!input) return;
+      const checkButton = input.parentElement.querySelector('button');
+      if (!checkButton) return;
       const decoded = atob(encodedFlag);
       if (input.value === decoded) {
         alertDialog(`Richtig! Flag für Aufgabe ${taskNumber} akzeptiert: ${decoded}`);
         collectedFlags[taskNumber - 1] = true;
         input.disabled = true;
+        checkButton.disabled = true;
+        checkButton.setAttribute('disabled', '');
+        checkButton.onclick = null; // Deaktiviert den Button
         displayAchievement(displayTitle);
         saveFlags();
         updateProgress();
@@ -611,6 +635,16 @@
         const el = document.getElementById(`flag${i}`);
         if (el && collectedFlags[i - 1]) {
           el.disabled = true;
+          if (el.value.length == 0) {
+            let flag = el.parentElement.querySelector('button[onclick]').onclick.toString()
+                    .match(/checkFlag\(\d+,\s?'([a-zA-Z0-9=]+)',.+\)/)[1]
+            el.value = atob(flag);
+          }
+          const checkButton = el.parentElement.querySelector('button');
+          if (checkButton) {
+            checkButton.disabled = true;
+            checkButton.setAttribute('disabled', '');
+          }
         }
       }
     }
