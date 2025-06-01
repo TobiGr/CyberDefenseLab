@@ -366,6 +366,54 @@
     <div id="achievements" class="achievements hidden">
       <h2>Erreichte Titel</h2>
     </div>
+
+    <!-- Alert-Dialog -->
+    <div id="alert-dialog-backdrop"></div>
+    <div id="alert-dialog">
+      <div id="alert-dialog-message"></div>
+      <div id="alert-dialog-buttons">
+        <button class="btn" onclick="document.body.classList.remove('alert-dialog-shown')">OK</button>
+      </div>
+    </div>
+
+    <style>
+      #alert-dialog, #alert-dialog-backdrop {
+        display: none; /* Standardmäßig versteckt */
+      }
+      body.alert-dialog-shown {
+        overflow: hidden; /* Verhindert Scrollen */
+      }
+      body.alert-dialog-shown #alert-dialog {
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        min-width: 200px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        z-index: 1001;
+      }
+      body.alert-dialog-shown #alert-dialog-backdrop {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+      }
+      body.alert-dialog-shown #alert-dialog-message {
+        margin-bottom: 20px;
+      }
+      body.alert-dialog-shown #alert-dialog-buttons {
+        text-align: right;
+      }
+    </style>
+
   </div>
 
 <!-- Footer -->
@@ -475,14 +523,14 @@
       if (!input) return;
       const decoded = atob(encodedFlag);
       if (input.value === decoded) {
-        alert(`Richtig! Flag für Aufgabe ${taskNumber} akzeptiert: ${decoded}`);
+        alertDialog(`Richtig! Flag für Aufgabe ${taskNumber} akzeptiert: ${decoded}`);
         collectedFlags[taskNumber - 1] = true;
         input.disabled = true;
         displayAchievement(displayTitle);
         saveFlags();
         updateProgress();
       } else {
-        alert("Falsch! Versuche es erneut.");
+        alertDialog("Falsch! Versuche es erneut.");
       }
     }
     // Spezielle Funktion für das Hashing Lab (zwei Flags)
@@ -492,13 +540,13 @@
       const correctA = atob("e0xFVF9ISU1fQ09PS30=");  // {LET_HIM_COOK}
       const correctB = atob("e0FERF9BX1BJTkNIX09GX1NBTFR9");  // {ADD_A_PINCH_OF_SALT}
       if (flag7a === correctA && flag7b === correctB) {
-        alert("Richtig! Beide Flags akzeptiert.");
+        alertDialog("Richtig! Beide Flags akzeptiert.");
         collectedFlags[6] = true; // Index 6
         displayAchievement("🍲 Let Him Cook + Add A Pinch of Salt");
         saveFlags();
         updateProgress();
       } else {
-        alert("Falsch! Versuche es erneut.");
+        alertDialog("Falsch! Versuche es erneut.");
       }
     }
     // Funktion zum Prüfen des Cookie-Flags (Task 8)
@@ -508,19 +556,19 @@
       const allCookies = document.cookie.split("; ").map(x => x.trim());
       const cFlag = allCookies.find(c => c.startsWith("cyberFlag="));
       if (!cFlag) {
-        alert("Kein verstecktes Cookie gefunden. Hast du Cookies akzeptiert?");
+        alertDialog("Kein verstecktes Cookie gefunden. Hast du Cookies akzeptiert?");
         return;
       }
       const cookieValue = cFlag.split("=")[1];
       if (input.value === cookieValue) {
-        alert("Richtig! Du hast die versteckte Cookie-Flag gefunden.");
+        alertDialog("Richtig! Du hast die versteckte Cookie-Flag gefunden.");
         collectedFlags[7] = true;
         input.disabled = true;
         displayAchievement("🍪 Cookie-Jäger");
         saveFlags();
         updateProgress();
       } else {
-        alert("Falsch! Prüfe die Cookies nochmal.");
+        alertDialog("Falsch! Prüfe die Cookies nochmal.");
       }
     }
 
@@ -552,7 +600,7 @@
       if (count === 12 && !confettiShown) {
         confetti();
         confettiShown = true;
-        alert("Flag: {Mission_accomplished}");
+        alertDialog("Flag: {Mission_accomplished}");
       }
     }
     function saveFlags() {
@@ -573,6 +621,11 @@
       div.className = "achievement";
       div.textContent = title;
       achievements.appendChild(div);
+    }
+    function alertDialog(message) {
+      document.getElementById("alert-dialog-message").innerHTML = message;
+      document.body.classList.add("alert-dialog-shown");
+
     }
   </script>
 </body>
