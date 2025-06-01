@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const querystring = require('querystring');
 
-const hostname = '0.0.0.0';
+const hostname = 'localhost';
 const port = 3000;
 
 // Dummy-Daten für Logins
