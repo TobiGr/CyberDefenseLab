@@ -7,6 +7,6 @@ export default function(eleventyConfig) {
 
     // Behalte Dateien
     eleventyConfig.addPassthroughCopy("server.js");
-
+    eleventyConfig.addPassthroughCopy("confetti.browser.min.js");
     eleventyConfig.ignores.add("ToDo.md");
 };
