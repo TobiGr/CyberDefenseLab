@@ -6,6 +6,7 @@
   <title>CyberDefense Lab 🧪</title>
   <!-- Einbindung von canvas-confetti -->
   <script src="confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="global.css">
   <style>
     /* Allgemeine Styles */
     body {
@@ -161,19 +162,6 @@
       padding: 5px;
       border-radius: 4px;
       font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      margin: 20px 0;
-      color: #ccc;
-      font-size: 14px;
-    }
-    footer a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
     /* Cookie-Banner */
     .cookie-banner {
@@ -386,7 +374,7 @@
       <h2>Erreichte Titel</h2>
     </div>
 
-    <!-- Alert-Dialog -->
+    {% include "alert-dialog.html" %}
     <div id="alert-dialog-backdrop"></div>
     <div id="alert-dialog">
       <div id="alert-dialog-message"></div>

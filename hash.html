@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hashing und Rainbow Tables Lab</title>
-  <link rel="stylesheet" href="global.css">
-  <style>
+---
+layout: small-nav.njk
+title: Hashing und Rainbow Tables Lab
+navTitle: Hashing und Rainbow Tables
+backButton: true
+---
+{% css %}
+    html, body {
+      height: auto;
+    }
+    h2, h3 {
+      color: #333;
+      text-align: left;
+    }
     /* Angepasste Info-Box-Styles ohne linken Streifen */
     .info {
       background: linear-gradient(135deg, #eef2f3, #f9fafb);
@@ -23,10 +29,8 @@
       text-decoration: none;
       margin-top: 10px;
     }
-  </style>
-</head>
-<body>
-  <div class="container">
+{% endcss %}
+
     <div class="info">
       <h2>Was sind Hashes und wie funktionieren sie?</h2>
       <p>
@@ -119,12 +123,6 @@ Hashing-Methode: MD5
       <input type="text" id="flag2" placeholder="MD5 Hash eingeben">
       <button class="btn" onclick="checkBonusFlag()">Prüfen</button>
     </div>
-  </div>
-
-  <!-- Zurück zur Startseite Button am Ende der Seite -->
-  <div style="text-align: center; margin-top: 20px;">
-    <button class="back-button" onclick="location.href='index.html'">Zurück zur Startseite</button>
-  </div>
 
   <script>
     function checkFlag(correctPassword, flag) {
@@ -148,8 +146,3 @@ Hashing-Methode: MD5
       }
     }
   </script>
-</body>
-</html>
-
-
-

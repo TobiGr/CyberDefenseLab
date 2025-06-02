@@ -77,7 +77,7 @@ const server = http.createServer((req, res) => {
             // geheim-Seite ausliefern
             serveFile('geheim.html', res);
         } else if (req.url === '/global.css') {
-            // geheim-Seite ausliefern
+            // Globale CSS-Datei ausliefern
             serveFile('global.css', res, "text/css");
         } else if (req.url === '/confetti.browser.min.js') {
             serveFile('confetti.browser.min.js', res, "text/javascript");

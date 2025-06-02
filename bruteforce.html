@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brute-Force-Demo</title>
-  <link rel="stylesheet" href="global.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
-      margin: 0;
-      padding: 20px;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    h1, h2 {
-      color: #333;
-      text-align: center;
-    }
+---
+layout: small-nav.njk
+title: Brute-Force-Demo
+navTitle: Brute-Force-Demo
+---
+
+  {% css %}
     p {
       color: #555;
       line-height: 1.6;
@@ -88,18 +69,8 @@
     .back-button:hover {
       background-color: #218838;
     }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="nav">
-      <div class="nav-buttons">
-        <a href="./index.html" class="nav-button" title="Zurück zur Startseite">⮜</a>
-      </div>
-      <div class="nav-title">
-        <h1>Brute-Force-Demo</h1>
-      </div>
-    </div>
+  {% endcss %}
+
 
     <p>
       Ein <strong>Brute-Force-Angriff</strong> versucht, durch das automatische Ausprobieren vieler Passwörter den richtigen Zugang zu finden. Dabei werden oft <strong>Passwortlisten</strong> verwendet – Sammlungen, die häufig genutzte oder geleakte Passwörter enthalten.
@@ -138,7 +109,7 @@
         Diese Demo zeigt, wie schnell schwache Passwörter durch automatisierte Angriffe kompromittiert werden können. Verwende starke, einzigartige Passwörter und zusätzliche Sicherheitsmaßnahmen, um deine Daten zu schützen. Außerdem kann das Wissen über solche Angriffe helfen, Schwachstellen in eigenen Systemen frühzeitig zu erkennen und zu beheben.
       </p>
     </div>
-  </div>
+
 
   <script>
     const correctPasswords = { admin: "admin123", user: "user123" };
@@ -214,8 +185,7 @@ Dieses Tool dient zu Demonstrationszwecken.
       }
     }
   </script>
-</body>
-</html>
+
 
 
 

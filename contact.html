@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontaktformular - CyberDefense Lab</title>
-    <link rel="stylesheet" href="global.css">
-    <style>
+---
+layout: small-nav.njk
+title: Kontaktformular - CyberDefense Lab
+navTitle: (Kein echtes) Kontaktformular
+---
+    {% css %}
         body {
             color: #fff;
             display: flex;
@@ -15,15 +13,12 @@
             flex-direction: column;
         }
         .container {
-            max-width: 450px;
-            background: #fff;
-            color: #333;
-            border-radius: 10px;
-            padding: 20px;
+            max-width: 550px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
-        h2 {
+        h1 {
+            font-size: 150%;
             text-align: center;
             color: #007bff;
             margin-bottom: 15px;
@@ -68,7 +63,8 @@
             text-decoration: underline;
         }
         .hint-button:hover {
-            color: #0056b3;
+            color: #ffffff;
+            text-decoration: none;
         }
         .hint-content {
             display: none;
@@ -79,29 +75,18 @@
             font-size: 14px;
             margin-top: 5px;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <nav class="nav">
-            <div class="nav-buttons">
-                <a href="./index.html" class="nav-button" title="Zurück zur Startseite">⮜</a>
-            </div>
-            <div class="nav-title">
-                <h1>(Kein echtes) Kontaktformular</h1>
-            </div>
-        </nav>
+    {% endcss %}
 
-        <p>Gib eine Nachricht ein und sende sie ab.</p>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Dein Name" required>
-            <input type="email" id="email" placeholder="Deine E-Mail" required>
-            <textarea id="message" placeholder="Deine Nachricht" required></textarea>
-            <button type="submit">Senden</button>
-        </form>
-        <p id="responseMessage" class="message">Nachricht erfolgreich gesendet!</p>
+    <p>Gib eine Nachricht ein und sende sie ab.</p>
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Dein Name" required>
+        <input type="email" id="email" placeholder="Deine E-Mail" required>
+        <textarea id="message" placeholder="Deine Nachricht" required></textarea>
+        <button type="submit">Senden</button>
+    </form>
+    <p id="responseMessage" class="message">Nachricht erfolgreich gesendet!</p>
 
-        <div class="hint-container">
+    <div class="hint-container">
         <button class="hint-button" onclick="toggleHint()">💡 Was gibt es hier zu tun?</button>
         <div id="hintContent" class="hint-content">
             <strong>💻 Webseiten können mehr über dich verraten, als du denkst!</strong><br>
@@ -118,7 +103,6 @@
             - Vermeide es, persönliche Daten auf ungesicherten Seiten einzugeben.<br>
             - Falls du eine verdächtige Seite findest, informiere den Betreiber oder sei vorsichtig mit deinen Daten.<br>
         </div>
-    </div>
     </div>
 
     <script>
@@ -144,7 +128,3 @@
             hint.style.display = hint.style.display === "none" || hint.style.display === "" ? "block" : "none";
         }
     </script>
-</body>
-</html>
-
-

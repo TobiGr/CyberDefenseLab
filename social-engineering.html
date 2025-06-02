@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Engineering Lab</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      padding: 20px 30px;
-      border: 1px solid #ddd;
-    }
+---
+layout: small-nav.njk
+title: Social Engineering Lab
+navTitle: Social Engineering Lab
+---
+
+  {% css %}
     h1 {
       font-size: 28px;
       color: #007bff;
@@ -115,7 +100,6 @@
     }
     .info {
       background: #f9f9f9;
-      padding: 15px;
       border: 1px solid #ddd;
       border-radius: 8px;
       margin-top: 20px;
@@ -134,25 +118,8 @@
       background: #007bff;
       border-radius: 10px;
     }
-    /* Zurück zur Startseite Button */
-    .back-button {
-      background-color: #28a745;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-    .back-button:hover {
-      background-color: #218838;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Social Engineering Lab</h1>
+  {% endcss %}
+
     <div class="explanation">
       <p>
         Social Engineering bezeichnet das Vorgehen, Menschen durch gezielte Manipulation dazu zu bringen, vertrauliche Informationen preiszugeben oder gewünschte Aktionen durchzuführen.
@@ -512,9 +479,4 @@
 
     window.onload = loadScenario;
   </script>
-</body>
-</html>
-
-
-
 

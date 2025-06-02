@@ -1,28 +1,20 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gobuster-Simulation</title>
-  <link rel="stylesheet" href="global.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
+---
+layout: small-nav.njk
+title: Gobuster-Simulation
+navTitle: Gobuster-Simulation
+backButton: true
+---
+    {% css %}
+    html, body {
+         height: auto;
     }
     .container {
       max-width: 900px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
-    .console {
-      background: #000;
-      color: #0f0;
-      font-family: 'Courier New', monospace;
-      padding: 20px;
-      border-radius: 5px;
-      height: 300px;
-      overflow-y: auto;
-      margin-bottom: 20px;
+    h2 {
+      text-align: left;
+      color: #333;
     }
     .btn {
       text-decoration: none;
@@ -41,12 +33,27 @@
       color: #5cb85c;
     }
     .info {
-      background: #f4f4f4;
-      padding: 15px;
-      border-left: 5px solid #007bff;
+      border-left-width: 5px;
       color: #333;
-      margin-bottom: 20px;
       border-radius: 5px;
+    }
+    label {
+      margin: 16px 0;
+      display: block;
+    }
+    #gobuster-command {
+      width: 100%;
+      padding: 10px;
+      font-family: monospace;
+      box-sizing: border-box;
+    }
+    .shell {
+      background-color: #000;
+      color: #0f0;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      margin-bottom: 20px;
     }
     /* Styling für einzelne Konsolenzeilen */
     .line {
@@ -58,30 +65,7 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    /* Neuer Back-Button im grünen Stil */
-    .back-button {
-      display: inline-block;
-      margin: 10px auto;
-      padding: 10px 20px;
-      background: linear-gradient(45deg, #28a745, #32CD32);
-      color: #fff;
-      text-align: center;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 16px;
-      transition: transform 0.2s, background 0.2s;
-    }
-    .back-button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(45deg, #218838, #1e7e34);
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Gobuster-Simulation</h1>
+  {% endcss %}
 
     <!-- Erklärender Infotext -->
     <div class="info">
@@ -102,7 +86,7 @@
     </div>
 
     <p>Nutze den folgenden Befehl, um den Scan korrekt zu starten:</p>
-    <div class="shell" style="background-color: #000; color: #0f0; padding: 10px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+    <div class="shell">
       gobuster dir -u http://192.168.0.10 -w wordlist.txt
     </div>
     <p>
@@ -116,8 +100,10 @@
     <!-- Eingabeabschnitt -->
     <div id="step-1">
       <h2>Schritt 1: Gobuster-Befehl eingeben</h2>
-      <p>Gib den Gobuster-Befehl ein, um den Scan zu starten:</p>
-      <input type="text" id="gobuster-command" placeholder="Befehl eingeben..." style="width: 100%; padding: 10px; font-family: monospace;">
+      <label for="gobuster-command">
+        Gib den Gobuster-Befehl ein, um den Scan zu starten:
+      </label>
+      <input type="text" id="gobuster-command" placeholder="Befehl eingeben...">
       <button class="btn" onclick="validateCommand()">Befehl ausführen</button>
       <p class="error-message hidden" id="error-message">Ungültiger Befehl! Überprüfe die Syntax und versuche es erneut.</p>
       <p class="success-message hidden" id="success-message">Befehl korrekt! Starte den Scan...</p>
@@ -128,12 +114,6 @@
       <h2>Schritt 2: Scan-Ergebnisse</h2>
       <div class="console" id="console-output"></div>
     </div>
-  </div>
-
-  <!-- Zurück zur Startseite Button am Ende der Seite -->
-  <div style="text-align: center; margin-top: 20px;">
-    <button class="back-button" onclick="location.href='/index.html'">Zurück zur Startseite</button>
-  </div>
 
   <script>
     // Liste der zu simulierenden Verzeichnisse
@@ -146,6 +126,7 @@
       { path: "password-simulator.html", status: 200 },
       { path: "assets.html", status: 200 },
       { path: "css.html", status: 403 },
+      { path: "global.css", status: 200 },
       { path: "sources.html", status: 200 },
       { path: "admin.html", status: 200 },
       { path: "secret-flag.html", status: 200 },
@@ -232,5 +213,3 @@
       consoleOutput.scrollTop = consoleOutput.scrollHeight;
     }
   </script>
-</body>
-</html>

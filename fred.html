@@ -1,101 +1,92 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fred wurde entführt! - Digitale Forensik</title>
-    <link rel="stylesheet" href="/global.css">
-</head>
-<body>
-    <div class="container">
-        <nav class="nav">
-            <div class="nav-buttons">
-                <a href="./index.html" class="nav-button" title="Zurück zur Startseite">⮜</a>
-            </div>
-            <div class="nav-title">
-                <h1>Fred wurde entführt! 🐭</h1>
-            </div>
-        </nav>
-        <div class="info">
-            <h2>Digitale Forensik: Analyse von Bilddateien</h2>
-            <p>
-                Bilder enthalten oft mehr Informationen, als auf den ersten Blick sichtbar ist. Digitale Forensik nutzt Werkzeuge wie
-                <strong>ExifTool</strong>, um <strong>versteckte Metadaten</strong> aus Bildern auszulesen. Diese Metadaten, bekannt als
-                <strong>EXIF-Daten</strong> (<i>Exchangeable Image File Format</i>), liefern wichtige Hinweise zur Herkunft eines Bildes,
-                wie beispielsweise:
-            </p>
-            <ul>
-                <li><strong>Kameramodell</strong>: Hersteller und Modell der Kamera oder des Smartphones</li>
-                <li><strong>Aufnahmedatum und Uhrzeit</strong>: Wann das Bild erstellt wurde</li>
-                <li><strong>GPS-Koordinaten</strong>: Falls aktiviert, können die genauen Geodaten des Aufnahmeortes gespeichert sein</li>
-                <li><strong>Bildbearbeitung</strong>: Software, mit der das Bild bearbeitet wurde</li>
-                <li><strong>Belichtungseinstellungen</strong>: Blende, Verschlusszeit, ISO-Wert</li>
-            </ul>
-            <p>
-                In unserem Szenario wurde Fred, die Laborratte des CyberDefense Labs, entführt. Die Entführer haben ein Bild von ihm geschickt und behauptet, dass es ihm gut geht.
-                Unsere Aufgabe ist es, durch digitale Forensik seinen Standort herauszufinden und Fred zu retten!
-            </p>
-        </div>
+---
+layout: small-nav.njk
+title: Fred wurde entführt! - Digitale Forensik
+navTitle: Fred wurde entführt! 🐭
+backButton: true
+---
+{% css %}
+html, body {
+    height: auto;
+}
+{% endcss %}
+<div class="info">
+    <h2>Digitale Forensik: Analyse von Bilddateien</h2>
+    <p>
+        Bilder enthalten oft mehr Informationen, als auf den ersten Blick sichtbar ist. Digitale Forensik nutzt Werkzeuge wie
+        <strong>ExifTool</strong>, um <strong>versteckte Metadaten</strong> aus Bildern auszulesen. Diese Metadaten, bekannt als
+        <strong>EXIF-Daten</strong> (<i>Exchangeable Image File Format</i>), liefern wichtige Hinweise zur Herkunft eines Bildes,
+        wie beispielsweise:
+    </p>
+    <ul>
+        <li><strong>Kameramodell</strong>: Hersteller und Modell der Kamera oder des Smartphones</li>
+        <li><strong>Aufnahmedatum und Uhrzeit</strong>: Wann das Bild erstellt wurde</li>
+        <li><strong>GPS-Koordinaten</strong>: Falls aktiviert, können die genauen Geodaten des Aufnahmeortes gespeichert sein</li>
+        <li><strong>Bildbearbeitung</strong>: Software, mit der das Bild bearbeitet wurde</li>
+        <li><strong>Belichtungseinstellungen</strong>: Blende, Verschlusszeit, ISO-Wert</li>
+    </ul>
+    <p>
+        In unserem Szenario wurde Fred, die Laborratte des CyberDefense Labs, entführt. Die Entführer haben ein Bild von ihm geschickt und behauptet, dass es ihm gut geht.
+        Unsere Aufgabe ist es, durch digitale Forensik seinen Standort herauszufinden und Fred zu retten!
+    </p>
+</div>
 
-        <h2>Bildanalyse</h2>
-        <img src="https://raw.githubusercontent.com/Rampe89/node/main/fred.jpg" alt="Bild von Fred der Ratte" style="width:100%; margin-bottom: 20px;">
+<h2>Bildanalyse</h2>
+<img src="https://raw.githubusercontent.com/Rampe89/node/main/fred.jpg" alt="Bild von Fred der Ratte" style="width:100%; margin-bottom: 20px;">
 
-        <button class="btn" onclick="runExifTool()">Exif-Daten anzeigen</button>
+<button class="btn" onclick="runExifTool()">Exif-Daten anzeigen</button>
 
-        <div class="console" id="console-output"></div>
+<div class="console" id="console-output"></div>
 
-        <div class="task">
-            <h2>Aufgaben</h2>
-            <p>Beantworte die folgenden Fragen zur Bildanalyse und rette Fred!</p>
+<div class="task">
+    <h2>Aufgaben</h2>
+    <p>Beantworte die folgenden Fragen zur Bildanalyse und rette Fred!</p>
 
-            <h3>1. Wo wurde Fred fotografiert? (Stadt)</h3>
-            <input type="text" id="question1" placeholder="***********">
-            <button class="btn" onclick="checkAnswer('Oldenburg', 'question1')">Prüfen</button>
+    <h3>1. Wo wurde Fred fotografiert? (Stadt)</h3>
+    <input type="text" id="question1" placeholder="***********">
+    <button class="btn" onclick="checkAnswer('Oldenburg', 'question1')">Prüfen</button>
 
-            <h3>2. Welches Kameramodell wurde verwendet?</h3>
-            <input type="text" id="question2" placeholder="***** ****">
-            <button class="btn" onclick="checkAnswer('Nikon D850', 'question2')">Prüfen</button>
+    <h3>2. Welches Kameramodell wurde verwendet?</h3>
+    <input type="text" id="question2" placeholder="***** ****">
+    <button class="btn" onclick="checkAnswer('Nikon D850', 'question2')">Prüfen</button>
 
-            <h3>3. Wer ist der angegebene Besitzer des Bildes?</h3>
-            <input type="text" id="question3" placeholder="**** ******">
-            <button class="btn" onclick="checkAnswer('Anna Tacker', 'question3')">Prüfen</button>
+    <h3>3. Wer ist der angegebene Besitzer des Bildes?</h3>
+    <input type="text" id="question3" placeholder="**** ******">
+    <button class="btn" onclick="checkAnswer('Anna Tacker', 'question3')">Prüfen</button>
 
-            <h3>4. Mit welcher Software wurde das Bild zuletzt bearbeitet?</h3>
-            <input type="text" id="question4" placeholder="****">
-            <button class="btn" onclick="checkAnswer('GIMP', 'question4')">Prüfen</button>
+    <h3>4. Mit welcher Software wurde das Bild zuletzt bearbeitet?</h3>
+    <input type="text" id="question4" placeholder="****">
+    <button class="btn" onclick="checkAnswer('GIMP', 'question4')">Prüfen</button>
 
-            <h3>5. Welche Uhrzeit ist in den GPS-Daten gespeichert? (HH:MM:SS)</h3>
-            <input type="text" id="question5" placeholder="**:**:**">
-            <button class="btn" onclick="checkAnswer('15:30:21', 'question5')">Prüfen</button>
+    <h3>5. Welche Uhrzeit ist in den GPS-Daten gespeichert? (HH:MM:SS)</h3>
+    <input type="text" id="question5" placeholder="**:**:**">
+    <button class="btn" onclick="checkAnswer('15:30:21', 'question5')">Prüfen</button>
 
-            <h3>6. Welches Gebäude sollten wir uns genauer ansehen?</h3>
-            <input type="text" id="question6" placeholder="***********">
-            <button class="btn" onclick="checkAnswer('OFFIS', 'question6')">Prüfen</button>
+    <h3>6. Welches Gebäude sollten wir uns genauer ansehen?</h3>
+    <input type="text" id="question6" placeholder="***********">
+    <button class="btn" onclick="checkAnswer('OFFIS', 'question6')">Prüfen</button>
 
-        </div>
+</div>
 
-        <!-- Flag-Anzeige -->
-        <div id="flag-container" class="hidden"></div>
+<!-- Flag-Anzeige -->
+<div id="flag-container" class="hidden"></div>
 
-    </div>
+<script>
+// Hier werden die korrekten Antworten für alle Fragen definiert (jetzt inklusive question6)
+const correctAnswers = {
+    question1: false,
+    question2: false,
+    question3: false,
+    question4: false,
+    question5: false,
+    question6: false
+};
 
-    <script>
-        // Hier werden die korrekten Antworten für alle Fragen definiert (jetzt inklusive question6)
-        const correctAnswers = {
-            question1: false,
-            question2: false,
-            question3: false,
-            question4: false,
-            question5: false,
-            question6: false
-        };
+function runExifTool() {
+    const consoleOutput = document.getElementById("console-output");
+    consoleOutput.innerHTML = "Starte ExifTool...<br><br>";
 
-        function runExifTool() {
-            const consoleOutput = document.getElementById("console-output");
-            consoleOutput.innerHTML = "Starte ExifTool...<br><br>";
-
-            setTimeout(() => {
-                const metadata = `
+    setTimeout(() => {
+        const metadata = `
 Filename: fred.jpg
 File Size: 4.7 MB
 File Type: JPEG
@@ -214,50 +205,48 @@ History When: 2024:12:10 16:00:00
 History Software Agent: GIMP 2.10
 
 ==================== Ende der Metadaten ====================
-                `;
-                // Aufteilen der Metadaten in einzelne Zeilen
-                const lines = metadata.split('\n');
-                let index = 0;
-                const intervalTime = 50; // Verzögerung in Millisekunden pro Zeile
+        `;
+        // Aufteilen der Metadaten in einzelne Zeilen
+        const lines = metadata.split('\n');
+        let index = 0;
+        const intervalTime = 50; // Verzögerung in Millisekunden pro Zeile
 
-                const interval = setInterval(() => {
-                    if (index < lines.length) {
-                        // Zeile zur Konsole hinzufügen und scrollen
-                        consoleOutput.innerHTML += lines[index] + '<br>';
-                        consoleOutput.scrollTop = consoleOutput.scrollHeight;
-                        index++;
-                    } else {
-                        clearInterval(interval);
-                    }
-                }, intervalTime);
-            }, 1000);
-        }
-
-        function checkAnswer(correctAnswer, questionId) {
-            const input = document.getElementById(questionId).value.trim();
-            if (input.toLowerCase() === correctAnswer.toLowerCase()) {
-                alert("Richtig! Gute Arbeit.");
-                document.getElementById(questionId).disabled = true;
-                correctAnswers[questionId] = true;
-                if (allAnswersCorrect()) showFlag();
+        const interval = setInterval(() => {
+            if (index < lines.length) {
+                // Zeile zur Konsole hinzufügen und scrollen
+                consoleOutput.innerHTML += lines[index] + '<br>';
+                consoleOutput.scrollTop = consoleOutput.scrollHeight;
+                index++;
             } else {
-                alert("Falsch! Versuche es erneut.");
+                clearInterval(interval);
             }
-        }
+        }, intervalTime);
+    }, 1000);
+}
 
-        function allAnswersCorrect() {
-            return Object.values(correctAnswers).every(answer => answer);
-        }
+function checkAnswer(correctAnswer, questionId) {
+    const input = document.getElementById(questionId).value.trim();
+    if (input.toLowerCase() === correctAnswer.toLowerCase()) {
+        alert("Richtig! Gute Arbeit.");
+        document.getElementById(questionId).disabled = true;
+        correctAnswers[questionId] = true;
+        if (allAnswersCorrect()) showFlag();
+    } else {
+        alert("Falsch! Versuche es erneut.");
+    }
+}
 
-        function showFlag() {
-            document.getElementById("flag-container").innerHTML = `
-                <div class="flag">Flag: {WHERE_IS_FRED?}</div>
-            `;
-            document.getElementById("flag-container").classList.remove("hidden");
-        }
-    </script>
-</body>
-</html>
+function allAnswersCorrect() {
+    return Object.values(correctAnswers).every(answer => answer);
+}
+
+function showFlag() {
+    document.getElementById("flag-container").innerHTML = `
+        <div class="flag">Flag: {WHERE_IS_FRED?}</div>
+    `;
+    document.getElementById("flag-container").classList.remove("hidden");
+}
+</script>
 
 
 

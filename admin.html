@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geheime Flag</title>
-    <link rel="stylesheet" href="global.css">
-    <style>
+---
+layout: head.njk
+title: Geheime Flag
+---
+    {% css %}
         body {
             display: flex;
             justify-content: center;
@@ -15,18 +12,22 @@
         }
         .container {
             text-align: center;
+            min-width: 400px;
+            max-width: 100%;
         }
         p {
             font-size: 1.2rem;
             line-height: 3rem;
             display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .emoji {
             font-size: 3rem;
+            margin-right: 0rem;
         }
-    </style>
-</head>
-<body>
+    {% endcss %}
+
     <div class="container">
         <div class="nav">
             <div class="nav-buttons">
@@ -37,10 +38,8 @@
             </div>
         </div>
 
-        <p>
-            <span>Du Fuchs! {FLAG_ADMIN_OVERRIDE}</span>
-            <span class="emoji">🦊</span>
-        </p>
+        <span class="emoji">🦊</span>
+        <br>
+        <span>Du Fuchs!</span>
+        <p>{FLAG_ADMIN_OVERRIDE}</p>
     </div>
-</body>
-</html>

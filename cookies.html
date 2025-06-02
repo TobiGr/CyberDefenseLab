@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookies und Sicherheit</title>
-    <link rel="stylesheet" href="global.css">
-    <style>
-        h1, h2 {
+---
+layout: small-nav.njk
+title: Cookies und Sicherheit
+navTitle: Cookies und ihre Sicherheitsrisiken
+backButton: true
+---
+    {% css %}
+        html, body {
+         height: auto;
+        }
+        h2 {
             text-align: left;
         }
 
@@ -23,19 +25,7 @@
         p, li {
             line-height: 1.6;
         }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <nav class="nav">
-        <div class="nav-buttons">
-            <a href="./index.html" class="nav-button" title="Zurück zur Startseite">⮜</a>
-        </div>
-        <div class="nav-title">
-            <h1>Cookies und ihre Sicherheitsrisiken</h1>
-        </div>
-    </nav>
+    {% endcss %}
 
     <div>
         <h2>Was sind Cookies?</h2>
@@ -85,12 +75,3 @@
         <h2>Fazit</h2>
         <p>Cookies machen viele Funktionen im Internet erst möglich, aber sie können auch Schwachstellen öffnen. Ihr solltet wissen, welche Daten sie speichern und wie ihr diese Daten schützen könnt. Probiert es selbst aus: Findet die versteckte Flag in den Cookies eurer Developer Tools. Viel Erfolg!</p>
     </div>
-</div>
-
-<!-- Zurück zur Startseite Button am Ende der Seite -->
-<div style="text-align: center; margin-top: 20px;">
-    <button class="back-button" onclick="location.href='/index.html'">Zurück zur Startseite</button>
-</div>
-
-</body>
-</html>

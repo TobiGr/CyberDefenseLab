@@ -1,14 +1,28 @@
+/**
+ * Globales CSS Stylesheet, um das Aussehen der einzelnen Unterseiten zu vereinheitlichen.
+ */
 html, body {
     min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: auto;
+}
+html.height-100 {
+    height: 100%;
 }
 
 body {
     font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #2c3e50, #4ca1af);
-    margin: 0;
-    padding: 20px;
 }
-body.sticky-footer {
+body.sticky-page {
+    height: 100%;
+}
+body.sticky-page > .sticky-page-container {
+    min-height: 100%;
     display: grid;
     grid-template-areas: "header" "content" "footer";
     grid-auto-rows: auto 1fr auto;
@@ -16,12 +30,13 @@ body.sticky-footer {
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     background: #fff;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     color: #333;
+    border: 1px solid #ddd;
 }
 
 h1, h2, h3 {
@@ -47,8 +62,8 @@ pre {
 .console {
     background: #000;
     color: #0f0;
-    font-family: monospace;
-    padding: 15px;
+    font-family: 'Courier New', monospace;
+    padding: 20px;
     border-radius: 5px;
     height: 300px;
     overflow-y: auto;
@@ -129,6 +144,45 @@ input[type="text"] {
     text-decoration: none;
 }
 
+/* Footer */
+footer {
+    text-align: center;
+    margin: 20px 0;
+    color: #ccc; /* Grundfarbe des Textes */
+    font-size: 14px;
+    box-sizing: border-box;
+}
+footer a {
+    color: #ffffff; /* Weiß für die Links */
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffdd00; /* Gelb beim Hover */
+    text-decoration: underline;
+}
+footer.dark-footer {
+    background-color: #1a1a1a;
+    padding: 15px;
+    color: #bbb;
+    font-size: 0.9em;
+    margin-bottom: 0;
+}
+footer.dark-footer a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+footer.dark-footer a:hover {
+    color: #fff;
+}
+/* Progress Bar */
+.progress-bar-container {
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
 .progress-bar {
     height: 25px;
     line-height: 25px;
@@ -138,4 +192,44 @@ input[type="text"] {
     color: white;
     font-weight: bold;
     transition: width 0.5s ease-in-out;
+}
+.progress-bar[data-progress="0"] {
+    color: #007bff;
+}
+
+/* Alert-Dialog */
+#alert-dialog, #alert-dialog-backdrop {
+    display: none; /* Standardmäßig versteckt */
+}
+body.alert-dialog-shown {
+    overflow: hidden; /* Verhindert Scrollen */
+}
+body.alert-dialog-shown #alert-dialog-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+body.alert-dialog-shown #alert-dialog {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    min-width: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1001;
+}
+body.alert-dialog-shown #alert-dialog-message {
+    margin-bottom: 20px;
+}
+body.alert-dialog-shown #alert-dialog-buttons > .btn {
+    width: 100%;
 }

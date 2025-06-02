@@ -1,56 +1,25 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phishing-Quiz</title>
-  <link rel="stylesheet" href="/global.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-    .hidden {
-      display: none;
-    }
-    .quiz-container {
-      max-width: 800px;
-      margin: 0 auto 40px auto;
+---
+layout: small-nav.njk
+title: Phishing-Quiz
+navTitle: Phishing-Quiz
+---
+
+  {% css %}
+    .container {
+      margin: 20px auto;
       background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      position: relative;
     }
     h1 {
       text-align: center;
       color: #0056b3;
     }
-    h2 {
+    h2, h3 {
+      text-align: left;
       color: #007bff;
     }
     p, ul {
       line-height: 1.6;
       text-align: justify;
-    }
-    .progress-bar-container {
-      width: 100%;
-      background: #ddd;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-    .progress-bar {
-      height: 25px;
-      background: #007bff;
-      width: 0%;
-      text-align: center;
-      color: white;
-      font-weight: bold;
-      transition: width 0.5s ease-in-out;
     }
     /* E-Mail-Fenster */
     .email {
@@ -173,19 +142,7 @@
     .home-button button:hover {
       background-color: #218838;
     }
-  </style>
-
-</head>
-<body>
-  <div class="quiz-container">
-    <nav class="nav">
-      <div class="nav-buttons">
-        <a href="./index.html" class="nav-button" title="Zurück zur Startseite">⮜</a>
-      </div>
-      <div class="nav-title">
-        <h1>Phishing-Quiz</h1>
-      </div>
-    </nav>
+  {% endcss %}
 
     <h2>Was ist Phishing?</h2>
     <p>
@@ -406,8 +363,4 @@
       document.getElementById("not-phishing-btn").addEventListener("click", () => checkAnswer(false));
     });
   </script>
-</body>
-</html>
-
-
 

@@ -8,5 +8,11 @@ module.exports = async function(eleventyConfig) {
     // Behalte Dateien
     eleventyConfig.addPassthroughCopy("server.js");
     eleventyConfig.addPassthroughCopy("confetti.browser.min.js");
+    eleventyConfig.addPassthroughCopy("global.css");
+    // ignoriere ToDo.md-Datei
     eleventyConfig.ignores.add("ToDo.md");
+
+    // CSS-Bundle für jede Seite erstellen,
+    // damit keine seitenspezifischen CSS-Dateien benötigt werden
+    eleventyConfig.addBundle("css");
 };

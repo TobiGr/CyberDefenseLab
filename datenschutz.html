@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutzerklärung - CyberDefense Lab</title>
-    <link rel="stylesheet" href="global.css">
-    <style>
+---
+layout: small-nav.njk
+title: Datenschutzerklärung - CyberDefense Lab
+navTitle: Datenschutzerklärung
+---
+    {% css %}
+        body, html {
+            height: auto
+        }
         h2 {
             text-align: left;
             margin-top: 20px;
@@ -26,18 +27,7 @@
         a:hover {
             text-decoration: underline;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="nav">
-            <div class="nav-buttons">
-                <a href="./index.html" class="nav-button" title="Zurück zur Startseite">⮜</a>
-            </div>
-            <div class="nav-title">
-                <h1>Datenschutzerklärung</h1>
-            </div>
-        </div>
+    {% endcss %}
 
         <p>Das CyberDefense Lab erhebt, speichert oder verarbeitet keine personenbezogenen Daten der Nutzer. Alle Interaktionen innerhalb des Labs, einschließlich der Eingabe von Flags oder Passwörtern, erfolgen lokal auf dem Gerät des Nutzers und werden weder aufgezeichnet noch weitergeleitet.</p>
 
@@ -64,7 +54,5 @@
         <footer>
             &copy; 2025 CyberDefense Lab | Datenschutzerklärung
         </footer>
-    </div>
-</body>
-</html>
+
 

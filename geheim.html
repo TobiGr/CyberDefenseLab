@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Geheime Flags 🔍</title>
-  <link rel="stylesheet" href="global.css">
-  <style>
+---
+layout: header-nav.njk
+title: Geheime Flags 🔍
+navTitle: Brute-Force-Demo
+
+---
+{% css %}
     /* Global Styles */
     body {
       padding: 0;
@@ -59,23 +58,6 @@
     ul li {
       margin-bottom: 10px;
     }
-    /* Footer */
-    footer {
-      background-color: #1a1a1a;
-      padding: 15px;
-      text-align: center;
-      color: #bbb;
-      font-size: 0.9em;
-    }
-    footer a {
-      color: #007bff;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    footer a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
     /* Animation */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -95,19 +77,8 @@
         margin: 20px;
       }
     }
-  </style>
-</head>
-<body class="sticky-footer">
-  <!-- Header & Navigation -->
-  <header>
-    <h1>CyberDefense Lab 🧪</h1>
-    <nav>
-      <a href="index.html">Startseite</a>
-    </nav>
-  </header>
+  {% endcss %}
 
-  <!-- Hauptinhalt -->
-  <div class="container">
     <h2>Geheime Flags</h2>
     <p>
       In unserem CyberDefense Lab gibt es neben den regulären Aufgaben auch geheime Flags zu entdecken. Diese Flags sind nicht an ein spezielles Lab gebunden, sondern auf der gesamten Website verteilt.
@@ -129,15 +100,4 @@
     <p>
       Viel Spaß beim Suchen und Entdecken!
     </p>
-  </div>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 CyberDefense Lab by Ramon Berghorn | Bildungszwecke |
-    <a href="impressum.html">Impressum</a> |
-    <a href="datenschutz.html">Datenschutzerklärung</a> |
-    <a href="sources.html">Quellen</a> |
-    <a href="/contact.html">Kontakt</a>
-  </footer>
-</body>
-</html>

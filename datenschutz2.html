@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutzerklärung - CyberDefense Lab</title>
-    <link rel="stylesheet" href="global.css">
-    <style>
+---
+layout: small-nav.njk
+title: Datenschutzerklärung - CyberDefense Lab
+navTitle: Datenschutzerklärung
+---
+{% css %}
         h2 {
             text-align: left;
             margin-top: 20px;
@@ -49,21 +47,16 @@
             border-radius: 5px;
             margin-top: 5px;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="notice">
-            Diese Datenschutzerklärung enthält versteckte problematische Stellen. Klicke auf Aussagen, die dir auffällig erscheinen, um sie zu prüfen und zu verbessern. Sobald alle Korrekturen vorgenommen wurden, erhältst du eine vollständige, präzise Datenschutzerklärung. Die vollständige Datenschutzerklärung kann unter <a href="datenschutz.html">diesem Link</a> eingesehen werden.
-        </div>
+    {% endcss %}
 
-        <div class="nav">
-            <div class="nav-buttons">
-                <a href="./index.html" class="nav-button" title="Zurück zur Startseite">⮜</a>
-            </div>
-            <div class="nav-title">
-                <h1>Datenschutzerklärung</h1>
-            </div>
+        <div class="notice">
+            Diese Datenschutzerklärung wurde zu Bildungszwecken erstellt.
+            <br><br>
+            Sie enthält versteckte problematische Stellen.
+            Klicke auf Aussagen, die dir auffällig erscheinen, um sie zu prüfen und zu verbessern.
+            Sobald alle Korrekturen vorgenommen wurden, erhältst du eine vollständige, präzise Datenschutzerklärung.
+            <br><br>
+            Die vollständige Datenschutzerklärung kann unter <a href="/datenschutz.html">diesem Link</a> eingesehen werden.
         </div>
 
         <h2>1. Datenverarbeitung</h2>
@@ -83,7 +76,7 @@
         <p onclick="checkText(this, 'Eine klar definierte Kontaktmöglichkeit wäre hier sinnvoll.', 'Für Fragen zur Nutzung des Labs oder zu Datenschutzthemen kontaktieren Sie uns bitte unter <a href=&quot;mailto:ramon.berghorn@hsklunkau.de&quot;>ramon.berghorn@hsklunkau.de</a>.')">Für Fragen zur Nutzung des Labs oder zu Datenschutzthemen kontaktieren Sie uns bitte unter <a href="mailto:ramon.berghorn@hsklunkau.de">ramon.berghorn@hsklunkau.de</a>.</p>
 
         <p class="message" id="successMessage">🏆 Glückwunsch! Du hast alle problematischen Stellen erkannt! Hier ist deine Flag: '{FLAG_PRIVACY_AWARE}'</p>
-    </div>
+
 
 <script>
     function checkText(element, explanation, correctedText) {
