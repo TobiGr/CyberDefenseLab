@@ -149,7 +149,7 @@ navTitle: Phishing-Quiz
       Phishing ist ein Betrugsversuch, bei dem Angreifer versuchen, persönliche Informationen wie Passwörter,
       Kreditkartendaten oder andere vertrauliche Daten zu stehlen. Sie nutzen dazu gefälschte E-Mails oder
       Webseiten, die seriösen Anbietern täuschend ähnlich sehen. Häufig wird in solchen E-Mails Druck ausgeübt,
-      z. B. durch die Androhung einer Kontosperrung oder die Behauptung, du hättest etwas gewonnen.
+      z.&nbsp;B. durch die Androhung einer Kontosperrung oder die Behauptung, du hättest etwas gewonnen.
     </p>
     <h3>Wie erkennt man Phishing?</h3>
     <ul>
@@ -161,7 +161,7 @@ navTitle: Phishing-Quiz
       <li>Seriöse Anbieter verschicken häufig keine direkten Links – im Zweifel lieber die offizielle Website manuell aufrufen.</li>
     </ul>
     <div class="progress-bar-container">
-      <div id="progress-bar" class="progress-bar">0%</div>
+      <div id="progress-bar" class="progress-bar" data-progress="0">&nbsp;0%</div>
     </div>
     <div id="quiz-content">
       <div id="email" class="email">
@@ -185,7 +185,6 @@ navTitle: Phishing-Quiz
     <div id="home-button" class="home-button">
       <button onclick="location.href='/index.html'">Zurück zur Startseite</button>
     </div>
-  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -300,8 +299,10 @@ navTitle: Phishing-Quiz
 
       function updateProgressBar() {
         const progress = ((currentEmailIndex / emailPool.length) * 100).toFixed(0);
-        document.getElementById("progress-bar").style.width = `${progress}%`;
-        document.getElementById("progress-bar").textContent = `${progress}%`;
+        let progressBar = document.getElementById("progress-bar");
+        progressBar.style.width = `${progress}%`;
+        progressBar.textContent = `${progress}%`;
+        progressBar.setAttribute("data-progress", progress);
       }
 
       function loadEmail() {

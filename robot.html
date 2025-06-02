@@ -20,7 +20,7 @@
       margin: 0 auto;
       white-space: pre;      /* Zeilenumbrüche 1:1 beibehalten */
       overflow-y: auto;      /* Scrollbar, falls zu lang */
-      max-height: 80vh;      /* Damit man notfalls scrollen kann */
+      max-height: calc(100vh - 40px);      /* Damit man notfalls scrollen kann */
       border: 1px solid #00ff00;
       padding: 10px;
       box-sizing: border-box;
@@ -30,7 +30,7 @@
 </head>
 <body>
   <div class="console" id="console"></div>
-  
+
   <script>
     // Der Binärcode
     const binaryString = "01111011 01001101 01010010 01011111 01010010 01001111 01000010 01001111 01010100 01011111 01010010 01000101 01000110 01000101 01010010 01000101 01001110 01000011 01000101 01111101";
@@ -98,7 +98,7 @@
 
     // Starte den Prozess nach dem Laden
     window.onload = () => {
-      // Erst mal nichts, nur leere Konsole – 
+      // Erst mal nichts, nur leere Konsole –
       // nach 1 Sekunde fangen wir an, den Binärcode zu tippen
       setTimeout(typeBinary, 1000);
     };
