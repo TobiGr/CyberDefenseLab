@@ -1,0 +1,23 @@
+---
+layout: head.njk
+navTitle: "{{ title }}"
+bodyClass: sticky-page
+height100: "true"
+darkFooter: "true"
+---
+<!-- Header & Navigation -->
+<header>
+    <h1>CyberDefense Lab 🧪</h1>
+    <nav>
+        <a href="/index.html">Startseite</a>
+    </nav>
+</header>
+
+<!-- Hauptinhalt -->
+<div style="display: flex; justify-content: center; align-items: center;">
+    <div class="container">
+        {{ content | safe }}
+    </div>
+</div>
+
+{%  include "footer.html" %}
