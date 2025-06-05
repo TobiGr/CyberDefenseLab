@@ -128,10 +128,10 @@ Hashing-Methode: MD5
     function checkFlag(correctPassword, flag) {
       const input = document.getElementById('flag1').value.trim();
       if (input === correctPassword) {
-        alert(`Richtig! Hier ist deine Flag: ${flag}`);
+          showAlertDialog(`Richtig! Hier ist deine Flag: ${flag}`);
         document.getElementById('bonus-task').classList.remove('hidden');
       } else {
-        alert("Falsch! Versuche es erneut.");
+          showAlertDialog("Falsch! Versuche es erneut.");
       }
     }
 
@@ -140,9 +140,9 @@ Hashing-Methode: MD5
       const correctHash = "e6f875eb15000fad443f9a207bdebdc1"; // Hash von password1232023
 
       if (input === correctHash) {
-        alert("Richtig! Du hast das Hashing mit Salt verstanden. Hier ist deine Bonus-Flag: {ADD_A_PINCH_OF_SALT}");
+          showAlertDialog("Richtig! Du hast das Hashing mit Salt verstanden. Hier ist deine Bonus-Flag: {ADD_A_PINCH_OF_SALT}");
       } else {
-        alert("Falsch! Überprüfe deine Berechnungen und versuche es erneut.");
+          showAlertDialog("Falsch! Überprüfe deine Berechnungen und versuche es erneut.");
       }
     }
   </script>

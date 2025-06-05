@@ -3,6 +3,23 @@
 <div id="alert-dialog">
     <div id="alert-dialog-message"></div>
     <div id="alert-dialog-buttons">
-        <button class="btn" onclick="document.body.classList.remove('alert-dialog-shown')">OK</button>
+        <button class="btn" onclick="closeAlertDialog()">OK</button>
     </div>
 </div>
+
+<script>
+    function showAlertDialog(message) {
+        document.getElementById("alert-dialog-message").innerHTML = message;
+        document.body.classList.add("alert-dialog-shown");
+        document.addEventListener("keydown", alertDialogKeyDownEventListener);
+    }
+    function alertDialogKeyDownEventListener(event) {
+        if (event.key === "Escape") {
+            closeAlertDialog();
+        }
+    }
+    function closeAlertDialog() {
+        document.body.classList.remove("alert-dialog-shown");
+        document.removeEventListener("keydown", alertDialogKeyDownEventListener);
+    }
+</script>

@@ -227,7 +227,7 @@ History Software Agent: GIMP 2.10
 function checkAnswer(correctAnswer, questionId) {
     const input = document.getElementById(questionId).value.trim();
     if (input.toLowerCase() === correctAnswer.toLowerCase()) {
-        alert("Richtig! Gute Arbeit.");
+        showAlertDialog("Richtig! Gute Arbeit.");
         document.getElementById(questionId).disabled = true;
         correctAnswers[questionId] = true;
         if (allAnswersCorrect()) showFlag();

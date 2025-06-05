@@ -12,7 +12,10 @@ navTitle: "{{ title }}"
             <h1>{{ navTitle }}</h1>
         </div>
     </div>
+
     {{ content | safe }}
+
+    {% include "alert-dialog.html" %}
 </div>
 
 {%  include "footer.html" %}
