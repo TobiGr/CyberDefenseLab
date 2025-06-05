@@ -83,6 +83,10 @@ pre {
 .btn:hover {
     background: #0056b3;
 }
+.btn:disabled {
+    background: #ccc;
+    cursor: initial;
+}
 
 .back-button {
     display: inline-block;

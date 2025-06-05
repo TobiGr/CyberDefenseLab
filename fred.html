@@ -42,27 +42,27 @@ html, body {
     <p>Beantworte die folgenden Fragen zur Bildanalyse und rette Fred!</p>
 
     <h3>1. Wo wurde Fred fotografiert? (Stadt)</h3>
-    <input type="text" id="question1" placeholder="***********">
+    <input type="text" id="question1" placeholder="***********" onkeydown="checkForEnter(event, 'Oldenburg', 'question1')">
     <button class="btn" onclick="checkAnswer('Oldenburg', 'question1')">Prüfen</button>
 
     <h3>2. Welches Kameramodell wurde verwendet?</h3>
-    <input type="text" id="question2" placeholder="***** ****">
+    <input type="text" id="question2" placeholder="***** ****" onkeydown="checkForEnter(event, 'Nikon D850', 'question2')">
     <button class="btn" onclick="checkAnswer('Nikon D850', 'question2')">Prüfen</button>
 
     <h3>3. Wer ist der angegebene Besitzer des Bildes?</h3>
-    <input type="text" id="question3" placeholder="**** ******">
+    <input type="text" id="question3" placeholder="**** ******" onkeydown="checkForEnter(event, 'Anna Tacker', 'question3')">
     <button class="btn" onclick="checkAnswer('Anna Tacker', 'question3')">Prüfen</button>
 
     <h3>4. Mit welcher Software wurde das Bild zuletzt bearbeitet?</h3>
-    <input type="text" id="question4" placeholder="****">
+    <input type="text" id="question4" placeholder="****" onkeydown="checkForEnter(event, 'GIMP', 'question4')">
     <button class="btn" onclick="checkAnswer('GIMP', 'question4')">Prüfen</button>
 
     <h3>5. Welche Uhrzeit ist in den GPS-Daten gespeichert? (HH:MM:SS)</h3>
-    <input type="text" id="question5" placeholder="**:**:**">
+    <input type="text" id="question5" placeholder="**:**:**" onkeydown="checkForEnter(event, '15:30:21', 'question5')">
     <button class="btn" onclick="checkAnswer('15:30:21', 'question5')">Prüfen</button>
 
     <h3>6. Welches Gebäude sollten wir uns genauer ansehen?</h3>
-    <input type="text" id="question6" placeholder="***********">
+    <input type="text" id="question6" placeholder="***********" onkeydown="checkForEnter(event, 'OFFIS', 'question6')">
     <button class="btn" onclick="checkAnswer('OFFIS', 'question6')">Prüfen</button>
 
 </div>
@@ -228,11 +228,18 @@ function checkAnswer(correctAnswer, questionId) {
     const input = document.getElementById(questionId).value.trim();
     if (input.toLowerCase() === correctAnswer.toLowerCase()) {
         showAlertDialog("Richtig! Gute Arbeit.");
-        document.getElementById(questionId).disabled = true;
+        input.disabled = true;
+        input.parentElement.querySelector(".btn").disabled = true;
         correctAnswers[questionId] = true;
         if (allAnswersCorrect()) showFlag();
     } else {
-        alert("Falsch! Versuche es erneut.");
+        showAlertDialog("Falsch! Versuche es erneut.");
+    }
+}
+
+function checkForEnter(event, correctAnswer, questionId) {
+    if (event.key === 'Enter') {
+        checkAnswer(correctAnswer, questionId);
     }
 }
 
