@@ -192,11 +192,19 @@
       background: #f0f0f0;
       padding: 10px;
       border-radius: 5px;
-      margin-bottom: 10px;
+      margin-bottom: 30px;
       user-select: none;
     }
     #secret-flags {
       display: none;
+    }
+    #secret-flags.flags-shown {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+    #secret-flags .task {
+      margin: 0;
     }
     #secret-toggle {
       float: right;
@@ -281,7 +289,7 @@
           <p>Gib das User-Passwort ein, um fortgeschrittene Aufgaben freizuschalten:</p>
           <input type="password" id="lab-password" placeholder="User-Passwort eingeben"/>
           <button class="btn" onclick="unlockTasks()">Freischalten</button>
-          <p class="error-message hidden" id="error-message">Wenn du das Passwort nicht selbst herausfindest, bist du noch nicht bereit!</p>
+          <p class="error-message hidden" id="error-message">Passwort falsch. Finde das richtige Passwort um zu beweisen, dass du für weitere Aufgaben gewappnet bist!</p>
         </div>
         <div id="protected-tasks" class="hidden">
           <!-- Updates & Patches -->
@@ -424,12 +432,12 @@
       const secretFlags = document.getElementById("secret-flags");
       const secretToggle = document.getElementById("secret-toggle");
       secretHeader.addEventListener("click", function() {
-        if (secretFlags.style.display === "none") {
-          secretFlags.style.display = "block";
-          secretToggle.textContent = "[-]";
-        } else {
-          secretFlags.style.display = "none";
+        if (secretFlags.classList.contains("flags-shown")) {
+          secretFlags.classList.remove("flags-shown")
           secretToggle.textContent = "[+]";
+        } else {
+          secretFlags.classList.add("flags-shown")
+          secretToggle.textContent = "[-]";
         }
       });
       updateUI();
