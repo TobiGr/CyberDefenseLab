@@ -551,7 +551,7 @@
      * Entsperrt die passwortgeschützten Aufgaben, falls das Passwort korrekt ist
      * @param forceUnlock {boolean} - ob die Aufgaben ohne Angabe des korrekten Passworts entsperrt werden sollen
      */
-    function unlockTasks(forceUnlock) {
+    function unlockTasks(forceUnlock = false) {
       const inputPassword = document.getElementById("lab-password").value.trim();
       const correct = atob("dXNlcjEyMw==");
       const errorMsg = document.getElementById("error-message");
