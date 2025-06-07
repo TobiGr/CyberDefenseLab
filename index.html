@@ -262,7 +262,7 @@
           <p>Simuliere einen Brute-Force-Angriff und lerne, wie schwache Passwörter ausgenutzt werden können.</p>
           <a href="bruteforce.html" class="btn">Aufgabe öffnen</a>
           <input type="text" id="flag2" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(2, 'e0JSVVRFX0ZPUkNFX0FETUlOX1NVQ0NFU1N9', '🔓 Passwortknacker')">
+          <button class="btn" onclick="checkFlag(2, 'e0JSVVRFX0ZPUkNFX0FETUlOX1NVQ0NFU1N9')">
             Prüfen
           </button>
         </div>
@@ -272,7 +272,7 @@
           <p>Lerne, wie Angreifer durch Täuschung Informationen gewinnen und wie du dich dagegen schützt.</p>
           <a href="social-engineering.html" class="btn">Aufgabe öffnen</a>
           <input type="text" id="flag3" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(3, 'e0RFRkVOREVSX09GX1RSVVNUfQ==', '🤝 Abwehrstratege')">
+          <button class="btn" onclick="checkFlag(3, 'e0RFRkVOREVSX09GX1RSVVNUfQ==')">
             Prüfen
           </button>
         </div>
@@ -282,7 +282,7 @@
           <p>Lerne, wie ein Passwortmanager deine Sicherheit erhöht.</p>
           <a href="password-simulator.html" class="btn">Aufgabe öffnen</a>
           <input type="text" id="flag4" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(4, 'e1VOQlJFQUtBQkxFX1BBU1NXT1JEfQ==', '🔑 Schlüsselmeister')">
+          <button class="btn" onclick="checkFlag(4, 'e1VOQlJFQUtBQkxFX1BBU1NXT1JEfQ==')">
             Prüfen
           </button>
         </div>
@@ -304,7 +304,7 @@
             <p>Erfahre, warum es wichtig ist, Systeme regelmäßig zu patchen, und teste eine Schwachstelle.</p>
             <a href="updates.html" class="btn">Aufgabe öffnen</a>
             <input type="text" id="flag5" placeholder="{Flag eingeben}"/>
-            <button class="btn" onclick="checkFlag(5, 'e1BBVENIX1RIRV9QQVRDSH0=', '🛡️ Schildwache')">
+            <button class="btn" onclick="checkFlag(5, 'e1BBVENIX1RIRV9QQVRDSH0=')">
               Prüfen
             </button>
           </div>
@@ -314,7 +314,7 @@
             <p>Finde versteckte Verzeichnisse auf einem Server durch einen Directory Busting Scan.</p>
             <a href="dirbuster.html" class="btn">Aufgabe öffnen</a>
             <input type="text" id="flag6" placeholder="{Flag eingeben}"/>
-            <button class="btn" onclick="checkFlag(6, 'e0ZPVU5EX1NFQ1JFVF9GTEFHfQ==', '🔍 Directory Detective')">
+            <button class="btn" onclick="checkFlag(6, 'e0ZPVU5EX1NFQ1JFVF9GTEFHfQ==')">
               Prüfen
             </button>
           </div>
@@ -349,7 +349,7 @@
           <h3>SYS_ADMIN</h3>
           <p>Gib die geheime Admin-Flag ein.</p>
           <input type="text" id="flag9" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(9, 'e0ZMQUdfQURNSU5fT1ZFUlJJREV9', '👑 SysAdmin')">
+          <button class="btn" onclick="checkFlag(9, 'e0ZMQUdfQURNSU5fT1ZFUlJJREV9')">
             Prüfen
           </button>
         </div>
@@ -358,7 +358,7 @@
           <h3>Mr. Robot</h3>
           <p>Gib die Flag ein.</p>
           <input type="text" id="flag10" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(10, 'e01SX1JPQk9UX1JFRkVSRU5DRX0=', '🤖 Mr. Robot')">
+          <button class="btn" onclick="checkFlag(10, 'e01SX1JPQk9UX1JFRkVSRU5DRX0=')">
             Prüfen
           </button>
         </div>
@@ -367,7 +367,7 @@
           <h3>Mäusejäger</h3>
           <p>Gib die Flag ein.</p>
           <input type="text" id="flag11" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(11, 'e1dIRVJFX0lTX0ZSRUQ/fQ==', '🐭 Mäusejäger')">
+          <button class="btn" onclick="checkFlag(11, 'e1dIRVJFX0lTX0ZSRUQ/fQ==')">
             Prüfen
           </button>
         </div>
@@ -376,7 +376,7 @@
           <h3>Console Leak</h3>
           <p>Gib die Konsole-Leak-Flag ein.</p>
           <input type="text" id="flag12" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(12, 'e0ZMQUdfQ09OU09MRV9MRUFLfQ==', '💬 Console Leak')">
+          <button class="btn" onclick="checkFlag(12, 'e0ZMQUdfQ09OU09MRV9MRUFLfQ==')">
             Prüfen
           </button>
         </div>
@@ -412,6 +412,21 @@
     const cookieEncoded = "e0NPT0tJRVNfUkVWRUFMX1NFQ1JFVFN9";
     // Konfetti soll nur einmal ausgelöst werden
     let confettiShown = false;
+    //
+    const achievements = {
+      1: "🎣 Phishing-Profi",
+      2: "🔓 Passwortknacker",
+      3: "🤝 Abwehrstratege",
+      4: "🔑 Schlüsselmeister",
+      5: "🛡️ Schildwache",
+      6: "🔍 Directory Detective",
+      7: "🍲 Let Him Cook + Add A Pinch of Salt",
+      8: "🍪 Cookie-Jäger",
+      9: "👑 SysAdmin",
+      10: "🤖 Mr. Robot",
+      11: "🐭 Mäusejäger",
+      12: "💬 Console Leak"
+    };
 
     /****************************
      * Initialisierung beim Laden
@@ -487,7 +502,7 @@
      * Flag-Handling Funktionen
      ****************************/
     // Allgemeine Funktion zum Prüfen einzelner Flags
-    function checkFlag(taskNumber, encodedFlag, displayTitle) {
+    function checkFlag(taskNumber, encodedFlag) {
       const input = document.getElementById(`flag${taskNumber}`);
       if (!input) return;
       const checkButton = input.parentElement.querySelector('button');
@@ -497,14 +512,15 @@
         showAlertDialog(`Richtig! Flag für Aufgabe ${taskNumber} akzeptiert: ${decoded}`);
         collectedFlags[taskNumber - 1] = true;
         updateTaskUi(input, checkButton);
-        displayAchievement(displayTitle);
+        const achievementTitle = achievements[taskNumber];
+        displayAchievement(achievementTitle);
         saveFlags();
         updateProgress();
       } else {
         showAlertDialog("Falsch! Versuche es erneut.");
       }
     }
-    // Spezielle Funktion für das Hashing Lab (zwei Flags)
+    // Spezielle Funktion für das Hashing Lab (Task 7: zwei Flags)
     function checkHashFlags() {
       const flag7a = document.getElementById("flag7a").value.trim();
       const flag7b = document.getElementById("flag7b").value.trim();
@@ -513,7 +529,8 @@
       if (flag7a === correctA && flag7b === correctB) {
         showAlertDialog("Richtig! Beide Flags akzeptiert.");
         collectedFlags[6] = true; // Index 6
-        displayAchievement("🍲 Let Him Cook + Add A Pinch of Salt");
+        const achievementTitle = achievements[7];
+        displayAchievement(achievementTitle);
         saveFlags();
         updateProgress();
       } else {
@@ -535,7 +552,8 @@
         showAlertDialog("Richtig! Du hast die versteckte Cookie-Flag gefunden.");
         collectedFlags[7] = true;
         input.disabled = true;
-        displayAchievement("🍪 Cookie-Jäger");
+        const achievementTitle = achievements[8];
+        displayAchievement(achievementTitle);
         saveFlags();
         updateProgress();
       } else {
@@ -588,7 +606,8 @@
         const inputEl = document.getElementById(`flag${i}`);
         if (inputEl && collectedFlags[i - 1]) {
           const checkButtonEl = inputEl.parentElement.querySelector('button');
-          updateTaskUi(inputEl, checkButtonEl)
+          updateTaskUi(inputEl, checkButtonEl);
+          displayAchievement(achievements[i]);
         }
       }
     }
