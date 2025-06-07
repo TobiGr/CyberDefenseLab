@@ -427,6 +427,11 @@
       } else if (localStorage.getItem('cookiesAccepted') === 'false') {
         hideCookieBanner();
       }
+      // Passwortgeschützte Aufgaben entsperren, falls bereits freigeschaltet
+      const labTasksUnlocked = localStorage.getItem("labTasksUnlocked") === "true";
+      if (labTasksUnlocked) {
+        unlockTasks(true);
+      }
       // Geheime Flags ausklappbar machen
       const secretHeader = document.getElementById("secret-header");
       const secretFlags = document.getElementById("secret-flags");
@@ -443,11 +448,12 @@
       updateUI();
       updateProgress();
       // EventHandler für Input-Felder
-      const inputs = document.querySelectorAll('.task input[type="text"]');
+      const inputs = document.querySelectorAll('.task input[type="text"], #lab-password');
       inputs.forEach(input => {
-          // Führe onclick aus, wenn Enter gedrückt wird
-        input.addEventListener('keyup', function(event) {
+        // Führe onclick aus, wenn Enter gedrückt wird
+        input.addEventListener('keypress', function(event) {
           if (event.key === 'Enter') {
+            event.preventDefault();
             const checkButton = input.parentElement.querySelector('button[onclick]');
             if (checkButton) {
               checkButton.click();
@@ -543,15 +549,21 @@
     /****************************
      * Passwortgeschützte Aufgaben
      ****************************/
-    function unlockTasks() {
+
+    /**
+     * Entsperrt die passwortgeschützten Aufgaben, falls das Passwort korrekt ist
+     * @param forceUnlock {boolean} - ob die Aufgaben ohne Angabe des korrekten Passworts entsperrt werden sollen
+     */
+    function unlockTasks(forceUnlock) {
       const inputPassword = document.getElementById("lab-password").value.trim();
-      const correct = atob("dXNlcjEyMw=="); // "user123"
+      const correct = atob("dXNlcjEyMw==");
       const errorMsg = document.getElementById("error-message");
       const protectedArea = document.getElementById("protected-tasks");
-      if (inputPassword === correct) {
+      if (forceUnlock || inputPassword === correct) {
         document.getElementById("password-container").classList.add("hidden");
         protectedArea.classList.remove("hidden");
         errorMsg.classList.add("hidden");
+        localStorage.setItem("labTasksUnlocked", "true");
       } else {
         errorMsg.classList.remove("hidden");
       }
