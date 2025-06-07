@@ -605,9 +605,12 @@
       if (input) {
         input.disabled = true;
         if (input.value.length === 0) {
-          let flag = input.parentElement.querySelector('button[onclick]').onclick.toString()
-                  .match(/checkFlag\(\d+,\s?'([a-zA-Z0-9=]+)',.+\)/)[1]
-          input.value = atob(flag);
+          let onclickInfo = input.parentElement.querySelector('button[onclick]').onclick.toString()
+                  .match(/checkFlag\(\d+,\s?'([a-zA-Z0-9=]+)',.+\)/);
+          if (onclickInfo && onclickInfo[1]) {
+            let flag = onclickInfo[1]; // encoded flag is second match / parameter
+            input.value = atob(flag);
+          }
         }
       }
       if (checkButton) {
