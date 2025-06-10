@@ -406,13 +406,12 @@
      * Globale Variablen & Konfiguration
      ***********************************/
     // Insgesamt 12 Flags (Index 0-11)
-    let collectedFlags = JSON.parse(localStorage.getItem("collectedFlags")) || 
+    let collectedFlags = JSON.parse(localStorage.getItem("collectedFlags")) ||
       [false, false, false, false, false, false, false, false, false, false, false, false];
-    // Base64-String für das Cookie {COOKIES_REVEAL_SECRETS}
     const cookieEncoded = "e0NPT0tJRVNfUkVWRUFMX1NFQ1JFVFN9";
     // Konfetti soll nur einmal ausgelöst werden
     let confettiShown = false;
-    //
+    // Achievements-Objekt mit Titeln
     const achievements = {
       1: "🎣 Phishing-Profi",
       2: "🔓 Passwortknacker",
