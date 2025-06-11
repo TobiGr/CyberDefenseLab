@@ -1,6 +1,18 @@
 /**
  * Globales CSS Stylesheet, um das Aussehen der einzelnen Unterseiten zu vereinheitlichen.
  */
+
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    src: url('/fonts/NunitoSans.ttf');
+}
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: italic;
+    src: url('/fonts/NunitoSans-Italic.ttf');
+}
+
 html, body {
     min-height: 100%;
     margin: 0;
@@ -16,6 +28,7 @@ html.height-100 {
 body {
     font-family: Arial, sans-serif;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     background: linear-gradient(135deg, #2c3e50, #4ca1af);
 }
 body.sticky-page {
