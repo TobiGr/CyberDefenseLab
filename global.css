@@ -152,13 +152,20 @@ input[type="text"] {
     justify-content: center;
     margin-bottom: 20px;
 }
-.nav-buttons {
-    position: absolute;
-    font-size: 150%;
+.nav-button-container {
+    float: left;
+    font-size: 200%;
+    line-height: 1;
 }
 .nav-button,
 .nav-button:hover {
     text-decoration: none;
+    color: #007bff;
+    width: 1rem;
+    display: inline-block;
+}
+.nav-button:hover {
+    font-weight: bold;
 }
 
 /* Footer */
