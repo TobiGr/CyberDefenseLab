@@ -53,6 +53,7 @@
       padding: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
+
     .top-info {
       text-align: center;
       font-size: 14px;
@@ -85,7 +86,7 @@
      display: flex;
      flex-wrap: wrap;
      gap: 20px;
-     align-items: flex-start; 
+     align-items: flex-start;
     }
 
     .column {
@@ -256,18 +257,8 @@
             Prüfen
           </button>
         </div>
-        <!-- Phishing-Quiz -->
-        <div class="task">
-          <h3>Phishing-Quiz</h3>
-          <p>Identifiziere Phishing-Mails und lerne, wie du echte von gefälschten Nachrichten unterscheidest.</p>
-          <a href="phishingquiz.html" class="btn">Aufgabe öffnen</a>
-          <input type="text" id="flag1" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(1, 'e0NBVUdIVF9BTExfVEhFX1BISVNIfQ==', '🎣 Phishing-Profi')">
-            Prüfen
-          </button>
-        </div>
         <!-- Brute-Force-Simulator -->
-        <div class="task highlight">
+        <div class="task">
           <h3>Brute-Force-Simulator</h3>
           <p>Simuliere einen Brute-Force-Angriff und lerne, wie schwache Passwörter ausgenutzt werden können.</p>
           <a href="bruteforce.html" class="btn">Aufgabe öffnen</a>
@@ -283,6 +274,16 @@
           <a href="social-engineering.html" class="btn">Aufgabe öffnen</a>
           <input type="text" id="flag3" placeholder="{Flag eingeben}"/>
           <button class="btn" onclick="checkFlag(3, 'e0RFRkVOREVSX09GX1RSVVNUfQ==')">
+            Prüfen
+          </button>
+        </div>
+        <!-- Phishing-Quiz -->
+        <div class="task">
+          <h3>Phishing-Quiz</h3>
+          <p>Identifiziere Phishing-Mails und lerne, wie du echte von gefälschten Nachrichten unterscheidest.</p>
+          <a href="phishingquiz.html" class="btn">Aufgabe öffnen</a>
+          <input type="text" id="flag1" placeholder="{Flag eingeben}"/>
+          <button class="btn" onclick="checkFlag(1, 'e0NBVUdIVF9BTExfVEhFX1BISVNIfQ==', '🎣 Phishing-Profi')">
             Prüfen
           </button>
         </div>
@@ -318,9 +319,9 @@
               Prüfen
             </button>
           </div>
-          <!-- Gobuster-Simulation -->
+          <!-- Dirbuster-Simulation -->
           <div class="task">
-            <h3>Gobuster-Simulation</h3>
+            <h3>Dirbuster-Simulation</h3>
             <p>Finde versteckte Verzeichnisse auf einem Server durch einen Directory Busting Scan.</p>
             <a href="dirbuster.html" class="btn">Aufgabe öffnen</a>
             <input type="text" id="flag6" placeholder="{Flag eingeben}"/>
@@ -406,7 +407,7 @@
 
   <!-- Cookie-Banner -->
   <div class="cookie-banner" id="cookie-banner">
-    🍪 Diese Website verwendet kaum Cookies – außer vielleicht ein paar Versteckte...  
+    🍪 Diese Website verwendet kaum Cookies – außer vielleicht ein paar Versteckte...
     <button onclick="acceptCookies()">Akzeptieren</button>
     <button onclick="rejectCookies()">Ablehnen (leider keine Flag für dich)</button>
   </div>
