@@ -81,6 +81,8 @@ const server = http.createServer((req, res) => {
             serveFile('global.css', res, "text/css");
         } else if (req.url === '/confetti.browser.min.js') {
             serveFile('confetti.browser.min.js', res, "text/javascript");
+        } else if (req.url.startsWith('/fonts/NunitoSans') && req.url.endsWith('.ttf')) {
+            serveFile(req.url.substring(1), res, "font/ttf");
         } else {
             // 404-Seite
             res.statusCode = 404;
@@ -119,6 +121,7 @@ const server = http.createServer((req, res) => {
 function serveFile(filename, res, mimeType = 'text/html') {
     fs.readFile(filename, (err, data) => {
         if (err) {
+            console.error(`Fehler beim Laden der Datei ${filename}:`, err);
             res.statusCode = 500;
             res.end('Fehler beim Laden der Seite!');
         } else {
