@@ -525,6 +525,7 @@
     function checkHashFlags(forceUnlock = false) {
       const input7a = document.getElementById("flag7a");
       const input7b = document.getElementById("flag7b");
+      const button = input7a.parentElement.querySelector('button');
       const flag7a = input7a.value.trim();
       const flag7b = input7b.value.trim();
       const correctA = atob("e0xFVF9ISU1fQ09PS30=");  // {LET_HIM_COOK}
@@ -532,15 +533,16 @@
       if (forceUnlock) {
         input7a.value = correctA;
         input7b.value = correctB;
-        const button = input7a.parentElement.querySelector('button');
         updateTaskUi(input7a, button);
         updateTaskUi(input7b, button);
+        disabledCheckButton(button);
       } else if (flag7a === correctA && flag7b === correctB) {
-        showAlertDialog("Richtig! Beide Flags akzeptiert.");
+        disabledCheckButton(button);
         collectedFlags[6] = true; // Index 6
         const achievementTitle = achievements[7];
         displayAchievement(achievementTitle);
         saveFlags();
+        showAlertDialog("Richtig! Beide Flags akzeptiert.");
         updateProgress();
       } else {
         showAlertDialog("Falsch! Versuche es erneut.");
@@ -549,6 +551,7 @@
     // Funktion zum Prüfen des Cookie-Flags (Task 8)
     function checkCookie(silent = false) {
       const input = document.getElementById("flag8");
+      const button = input.parentElement.querySelector('button');
       if (!input) return;
       const allCookies = document.cookie.split("; ").map(x => x.trim());
       const cFlag = allCookies.find(c => c.startsWith("cyberFlag="));
@@ -562,11 +565,12 @@
       if (input.value === cookieValue) {
         if (!silent) {
           showAlertDialog("Richtig! Du hast die versteckte Cookie-Flag gefunden.");
+          const achievementTitle = achievements[8];
+          displayAchievement(achievementTitle);
         }
         collectedFlags[7] = true;
         input.disabled = true;
-        const achievementTitle = achievements[8];
-        displayAchievement(achievementTitle);
+        disabledCheckButton(button);
         saveFlags();
         updateProgress();
       } else if (!silent) {
@@ -643,10 +647,13 @@
           }
         }
       }
-      if (checkButton) {
-        checkButton.disabled = true;
-        checkButton.setAttribute('disabled', '');
-        checkButton.onclick = null;
+      disabledCheckButton(checkButton);
+    }
+    function disabledCheckButton(button) {
+      if (button) {
+        button.disabled = true;
+        button.setAttribute("disabled", "");
+        button.innerHTML = "Richtig!";
       }
     }
     function displayAchievement(title) {
