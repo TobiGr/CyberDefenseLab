@@ -16,7 +16,7 @@ Das **CyberDefense Lab** bietet praxisnahe Einblicke in zentrale IT-Sicherheitsk
 
 ## Voraussetzungen
 Um das Lab lokal auszuführen oder zu hosten, benötigst du:
-- **Node.js** (Version 16 oder höher)
+- **[Node.js](https://nodejs.org)** (Version 16 oder höher)
 - **npm** (Node Package Manager)
 - Optional:
   - **GitHub-Account** (zum Klonen des Repositories)
@@ -29,18 +29,29 @@ Um das Lab lokal auszuführen oder zu hosten, benötigst du:
 ### 1. Repository klonen
 1. Öffne das Terminal oder eine Git-Bash.
 2. Führe folgenden Befehl aus, um das Repository zu klonen:
-git clone https://github.com/Rampe89/node.git
-3. Navigiere ins Projektverzeichnis:
-cd node
+   ``` sh
+   git clone https://github.com/tobigr/CyberDefenseLab.git
+   ```
+4. Navigiere ins Projektverzeichnis:
+   ```sh
+   cd node
+   ```
 
 ### 2. Abhängigkeiten installieren
 1. Stelle sicher, dass Node.js und npm installiert sind.
 2. Installiere die benötigten Pakete:
-npm install
+   ```sh
+   npm install
+   ```
+
 ### 3. Lokalen Server starten
-1. Starte den Server mit:
-node server.js
+#### Für den Normalbetrieb des Labs
+1. Starte den Server: `npm run start`
 2. Öffne deinen Browser und rufe `http://localhost:3000` auf.
+#### Für die Entwicklung des Labs
+1. Starte den Eleventy Entwicklungsserver: `npm run serve &`
+2. Starte den Server, der die Seite bereitstellt: `npm run server &`
+3. Öffne deinen Browser und rufe `http://localhost:3000` auf.
 
 ---
 
