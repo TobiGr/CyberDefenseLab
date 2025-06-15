@@ -146,6 +146,9 @@ input[type="text"] {
 .hidden {
     display: none;
 }
+.text-center {
+    text-align: center;
+}
 
 .nav {
     display: block;

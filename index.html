@@ -252,8 +252,8 @@
           <h3>Digitale Forensik 🔎</h3>
           <p>Finde Fred und erfahre alles über seine Entführung durch Analyse von Bildmetadaten.</p>
           <a href="fred.html" class="btn">Aufgabe öffnen</a>
-          <input type="text" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(1, 'e0NBVUdIVF9BTExfVEhFX1BISVNIfQ==', '🐭 Mäusejäger')">
+          <input type="text" id="flag11" placeholder="{Flag eingeben}"/>
+          <button class="btn" onclick="checkFlag(11, 'e0NBVUdIVF9BTExfVEhFX1BISVNIfQ==', '🐭 Mäusejäger', 'Digitale Forensik 🔎')">
             Prüfen
           </button>
         </div>
@@ -263,7 +263,7 @@
           <p>Simuliere einen Brute-Force-Angriff und lerne, wie schwache Passwörter ausgenutzt werden können.</p>
           <a href="bruteforce.html" class="btn">Aufgabe öffnen</a>
           <input type="text" id="flag2" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(2, 'e0JSVVRFX0ZPUkNFX0FETUlOX1NVQ0NFU1N9')">
+          <button class="btn" onclick="checkFlag(2, 'e0JSVVRFX0ZPUkNFX0FETUlOX1NVQ0NFU1N9', 'Brute-Force-Simulator')">
             Prüfen
           </button>
         </div>
@@ -273,7 +273,7 @@
           <p>Lerne, wie Angreifer durch Täuschung Informationen gewinnen und wie du dich dagegen schützt.</p>
           <a href="social-engineering.html" class="btn">Aufgabe öffnen</a>
           <input type="text" id="flag3" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(3, 'e0RFRkVOREVSX09GX1RSVVNUfQ==')">
+          <button class="btn" onclick="checkFlag(3, 'e0RFRkVOREVSX09GX1RSVVNUfQ==', 'Social-Engineering-Simulation')">
             Prüfen
           </button>
         </div>
@@ -283,7 +283,7 @@
           <p>Identifiziere Phishing-Mails und lerne, wie du echte von gefälschten Nachrichten unterscheidest.</p>
           <a href="phishingquiz.html" class="btn">Aufgabe öffnen</a>
           <input type="text" id="flag1" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(1, 'e0NBVUdIVF9BTExfVEhFX1BISVNIfQ==', '🎣 Phishing-Profi')">
+          <button class="btn" onclick="checkFlag(1, 'e0NBVUdIVF9BTExfVEhFX1BISVNIfQ==', '🎣 Phishing-Profi', 'Phishing-Quiz')">
             Prüfen
           </button>
         </div>
@@ -293,7 +293,7 @@
           <p>Lerne, wie ein Passwortmanager deine Sicherheit erhöht.</p>
           <a href="password-simulator.html" class="btn">Aufgabe öffnen</a>
           <input type="text" id="flag4" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(4, 'e1VOQlJFQUtBQkxFX1BBU1NXT1JEfQ==')">
+          <button class="btn" onclick="checkFlag(4, 'e1VOQlJFQUtBQkxFX1BBU1NXT1JEfQ==', 'Passwortmanager-Lab')">
             Prüfen
           </button>
         </div>
@@ -315,7 +315,7 @@
             <p>Erfahre, warum es wichtig ist, Systeme regelmäßig zu patchen, und teste eine Schwachstelle.</p>
             <a href="updates.html" class="btn">Aufgabe öffnen</a>
             <input type="text" id="flag5" placeholder="{Flag eingeben}"/>
-            <button class="btn" onclick="checkFlag(5, 'e1BBVENIX1RIRV9QQVRDSH0=')">
+            <button class="btn" onclick="checkFlag(5, 'e1BBVENIX1RIRV9QQVRDSH0=', 'Updates und Patches 🔒')">
               Prüfen
             </button>
           </div>
@@ -325,7 +325,7 @@
             <p>Finde versteckte Verzeichnisse auf einem Server durch einen Directory Busting Scan.</p>
             <a href="dirbuster.html" class="btn">Aufgabe öffnen</a>
             <input type="text" id="flag6" placeholder="{Flag eingeben}"/>
-            <button class="btn" onclick="checkFlag(6, 'e0ZPVU5EX1NFQ1JFVF9GTEFHfQ==')">
+            <button class="btn" onclick="checkFlag(6, 'e0ZPVU5EX1NFQ1JFVF9GTEFHfQ==', 'Dirbuster-Simulation')">
               Prüfen
             </button>
           </div>
@@ -370,15 +370,6 @@
           <p>Gib die Flag ein.</p>
           <input type="text" id="flag10" placeholder="{Flag eingeben}"/>
           <button class="btn" onclick="checkFlag(10, 'e01SX1JPQk9UX1JFRkVSRU5DRX0=')">
-            Prüfen
-          </button>
-        </div>
-        <!-- Mäusejäger -->
-        <div class="task">
-          <h3>Mäusejäger</h3>
-          <p>Gib die Flag ein.</p>
-          <input type="text" id="flag11" placeholder="{Flag eingeben}"/>
-          <button class="btn" onclick="checkFlag(11, 'e1dIRVJFX0lTX0ZSRUQ/fQ==')">
             Prüfen
           </button>
         </div>
@@ -512,14 +503,14 @@
      * Flag-Handling Funktionen
      ****************************/
     // Allgemeine Funktion zum Prüfen einzelner Flags
-    function checkFlag(taskNumber, encodedFlag) {
+    function checkFlag(taskNumber, encodedFlag, taskName) {
       const input = document.getElementById(`flag${taskNumber}`);
       if (!input) return;
       const checkButton = input.parentElement.querySelector('button');
       if (!checkButton) return;
       const decoded = atob(encodedFlag);
       if (input.value === decoded) {
-        showAlertDialog(`Richtig! Flag für Aufgabe ${taskNumber} akzeptiert: ${decoded}`);
+        showAlertDialog(`<p class="text-center">✅ Richtig!</p><br>Flag für Aufgabe <i>${taskName}</i> akzeptiert.`);
         collectedFlags[taskNumber - 1] = true;
         updateTaskUi(input, checkButton);
         const achievementTitle = achievements[taskNumber];
