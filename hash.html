@@ -99,7 +99,7 @@ backButton: true
       </pre>
       <p>Welches Passwort gehört zu den Hashes? Gib eines der Passwörter als Flag ein:</p>
       <input type="text" id="flag1" placeholder="Flag eingeben">
-      <button class="btn" onclick="checkFlag('password', '{LET_HIM_COOK}')">Prüfen</button>
+      <button class="btn" onclick="checkFlag(['password', 'test'], '{LET_HIM_COOK}')">Prüfen</button>
     </div>
 
     <div class="steps hidden" id="bonus-task">
@@ -116,7 +116,7 @@ Hashing-Methode: MD5
       </pre>
       <p>
         Finde den MD5-Hash mit
-        <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">CyberChef</a>
+        <a href="https://gchq.github.io/CyberChef/#recipe=MD5()" target="_blank" rel="noopener noreferrer">CyberChef</a>
         und gib ihn ein, um deine Flag zu erhalten:
         Kannst du auch diesen neuen Hash mit <a href="https://crackstation.net" target="_blank">Crackstation</a> knacken?
       </p>
@@ -125,9 +125,9 @@ Hashing-Methode: MD5
     </div>
 
   <script>
-    function checkFlag(correctPassword, flag) {
+    function checkFlag(correctPasswords, flag) {
       const input = document.getElementById('flag1').value.trim();
-      if (input === correctPassword) {
+      if (input === correctPasswords[0] || input === correctPasswords[1]) {
           showAlertDialog(`Richtig! Hier ist deine Flag: ${flag}`);
         document.getElementById('bonus-task').classList.remove('hidden');
       } else {
