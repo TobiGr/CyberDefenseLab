@@ -8,6 +8,11 @@ backButton: true
 html, body {
     height: auto;
 }
+.btn:disabled {
+    background-color: #28a745;
+    color: #fff;
+    cursor: not-allowed;
+}
 {% endcss %}
 <div class="info">
     <h2>Digitale Forensik: Analyse von Bilddateien</h2>
@@ -42,28 +47,29 @@ html, body {
     <p>Beantworte die folgenden Fragen zur Bildanalyse und rette Fred!</p>
 
     <h3>1. Wo wurde Fred fotografiert? (Stadt)</h3>
-    <input type="text" id="question1" placeholder="***********" onkeydown="checkForEnter(event, 'Oldenburg', 'question1')">
-    <button class="btn" onclick="checkAnswer('Oldenburg', 'question1')">Prüfen</button>
+    <input type="text" id="question1" placeholder="*********" onkeydown="checkForEnter('Oldenburg', 'question1', this.nextSibling)">
+    <button class="btn" onclick="checkAnswer('Oldenburg', 'question1', this)">Prüfen</button>
 
     <h3>2. Welches Kameramodell wurde verwendet?</h3>
-    <input type="text" id="question2" placeholder="***** ****" onkeydown="checkForEnter(event, 'Nikon D850', 'question2')">
-    <button class="btn" onclick="checkAnswer('Nikon D850', 'question2')">Prüfen</button>
+    <input type="text" id="question2" placeholder="***** ****" onkeydown="checkForEnter('Nikon D850', 'question2', this.nextSibling)">
+    <button class="btn" onclick="checkAnswer('Nikon D850', 'question2', this)">Prüfen</button>
 
     <h3>3. Wer ist der angegebene Besitzer des Bildes?</h3>
-    <input type="text" id="question3" placeholder="**** ******" onkeydown="checkForEnter(event, 'Anna Tacker', 'question3')">
-    <button class="btn" onclick="checkAnswer('Anna Tacker', 'question3')">Prüfen</button>
+    <input type="text" id="question3" placeholder="**** ******" onkeydown="checkForEnter('Anna Tacker', 'question3', this.nextSibling)">
+    <button class="btn" onclick="checkAnswer('Anna Tacker', 'question3', this)">Prüfen</button>
 
     <h3>4. Mit welcher Software wurde das Bild zuletzt bearbeitet?</h3>
-    <input type="text" id="question4" placeholder="****" onkeydown="checkForEnter(event, 'GIMP', 'question4')">
-    <button class="btn" onclick="checkAnswer('GIMP', 'question4')">Prüfen</button>
+    <input type="text" id="question4" placeholder="****" onkeydown="checkForEnter('GIMP', 'question4', this.nextSibling)">
+    <button class="btn" onclick="checkAnswer('GIMP', 'question4', this)">Prüfen</button>
 
     <h3>5. Welche Uhrzeit ist in den GPS-Daten gespeichert? (HH:MM:SS)</h3>
-    <input type="text" id="question5" placeholder="**:**:**" onkeydown="checkForEnter(event, '15:30:21', 'question5')">
-    <button class="btn" onclick="checkAnswer('15:30:21', 'question5')">Prüfen</button>
+    <input type="text" id="question5" placeholder="**:**:**" onkeydown="checkForEnter('15:30:21', 'question5', this.nextSibling)">
+    <button class="btn" onclick="checkAnswer('15:30:21', 'question5', this)">Prüfen</button>
 
     <h3>6. Welches Gebäude sollten wir uns genauer ansehen?</h3>
-    <input type="text" id="question6" placeholder="***********" onkeydown="checkForEnter(event, 'OFFIS', 'question6')">
-    <button class="btn" onclick="checkAnswer('OFFIS', 'question6')">Prüfen</button>
+    <input type="text" id="question6" placeholder="*****" onkeydown="checkForEnter('OFFIS', 'question6', this.nextSibling)">
+    <button class="btn" onclick="checkAnswer('OFFIS', 'question6', this)">Prüfen</button>
+
     <div class="info">
         <p> Hinweis: Die Position, die sich hinter einer Koordinate verbirgt, kann z.B. mit Hilfe eines <a href="https://www.koordinaten-umrechner.de/" target="_blank">Koordinaten-Umrechners</a> auf einer Karte angezeigt werden.</p>
     </div>
@@ -228,12 +234,14 @@ History Software Agent: GIMP 2.10
     }, 1000);
 }
 
-function checkAnswer(correctAnswer, questionId) {
-    const input = document.getElementById(questionId).value.trim();
+function checkAnswer(correctAnswer, questionId, buttonEl) {
+    const inputEl = document.getElementById(questionId);
+    const input = inputEl.value.trim();
     if (input.toLowerCase() === correctAnswer.toLowerCase()) {
         showAlertDialog("Richtig! Gute Arbeit.");
-        input.disabled = true;
-        input.parentElement.querySelector(".btn").disabled = true;
+        inputEl.disabled = true;
+        buttonEl.disabled = true;
+        buttonEl.innerHTML = "Richtig!";
         correctAnswers[questionId] = true;
         if (allAnswersCorrect()) showFlag();
     } else {
