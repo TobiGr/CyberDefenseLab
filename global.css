@@ -57,6 +57,10 @@ h1, h2, h3 {
     color: #007bff;
 }
 
+p, li, pre {
+    line-height: 1.5;
+}
+
 pre {
     background: #f9f9f9;
     padding: 15px;
@@ -73,14 +77,15 @@ pre {
 }
 
 .console {
-    background: #000;
+    background: #1e1e1e;
     color: #0f0;
-    font-family: 'Courier New', monospace;
+    font-family: monospace;
     padding: 20px;
     border-radius: 5px;
     height: 300px;
     overflow-y: auto;
     margin-bottom: 20px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .btn {
@@ -99,6 +104,16 @@ pre {
 .btn:disabled {
     background: #ccc;
     cursor: initial;
+}
+
+.btn.modern {
+    background: linear-gradient(45deg, #007bff, #00a1ff);
+    border: none;
+    transition: transform 0.2s, background 0.2s;
+}
+.btn.modern:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #0056b3, #007bff);
 }
 
 .back-button {
@@ -214,7 +229,7 @@ footer.dark-footer a:hover {
     height: 25px;
     line-height: 25px;
     background: #007bff;
-    width: 0%;
+    width: 0;
     text-align: center;
     color: white;
     font-weight: bold;
