@@ -1,7 +1,7 @@
 ---
 layout: small-nav.njk
-title: Gobuster-Simulation
-navTitle: Gobuster-Simulation
+title: Dirbuster-Simulation
+navTitle: Dirbuster-Simulation
 backButton: true
 ---
     {% css %}
@@ -36,6 +36,12 @@ backButton: true
       border-left-width: 5px;
       color: #333;
       border-radius: 5px;
+    }
+    .info-task {
+      border-left-color: #007bff;
+      background-color: #e7f3ff;
+      padding: 15px;
+      margin-bottom: 20px;
     }
     label {
       margin: 16px 0;
@@ -76,14 +82,18 @@ backButton: true
       <p>
         Mit Tools wie <strong>Gobuster</strong> kannst du systematisch eine Liste potenzieller Verzeichnisnamen (eine sogenannte Wordlist) prüfen lassen. Gobuster sendet dabei automatisierte Anfragen an den Server und wertet die Antworten aus. Wenn ein Verzeichnis existiert, meldet der Server einen Erfolgscode zurück.
       </p>
+      </div>
+    <div class="info info-task">
       <p>
-        In dieser Simulation lernst du, wie Directory Busting funktioniert und welche Gefahren entstehen, wenn Webserver nicht ausreichend abgesichert sind. Dein Ziel ist es, versteckte Verzeichnisse auf einem simulierten Server zu finden und zu analysieren. Dazu musst du die gefundenen Verzeichnisse manuell im Browser eingeben, wobei die Endung <code>.html</code> angehängt werden muss, um den Inhalt der Dateien anzuzeigen.
+        In dieser Simulation lernst du, wie Directory Busting funktioniert und welche Gefahren entstehen, wenn Webserver nicht ausreichend abgesichert sind. <strong>Dein Ziel ist es</strong>, versteckte Verzeichnisse auf einem simulierten Server zu finden und zu analysieren. Dazu musst du die gefundenen Verzeichnisse manuell im Browser eingeben, wobei die Endung <code>.html</code> angehängt werden muss, um den Inhalt der Dateien anzuzeigen.
       </p>
+    </div>
+
       <p>
         <strong>Warum machen wir das?</strong><br>
         Diese Übung hilft dir, die Funktionsweise von Angriffstechniken wie Directory Busting zu verstehen. Du erkennst, wie Angreifer durch schlecht gesicherte Webserver auf sensible Verzeichnisse zugreifen könnten. Das Verständnis dieser Angriffsweise ist ein erster Schritt, um mögliche Schwachstellen frühzeitig zu erkennen und zu vermeiden.
       </p>
-    </div>
+
 
     <p>Nutze den folgenden Befehl, um den Scan korrekt zu starten:</p>
     <div class="shell">
