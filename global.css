@@ -173,7 +173,6 @@ input[type="text"] {
 .nav-button-container {
     float: left;
     font-size: 200%;
-    line-height: 1;
 }
 .nav-button,
 .nav-button:hover {
