@@ -349,8 +349,8 @@ navTitle: Phishing-Quiz
         document.getElementById("quiz-content").style.display = "none";
         const result = document.getElementById("result");
         result.textContent = correctAnswers === emailPool.length
-          ? "Herzlichen Glückwunsch! Du hast alle richtig beantwortet. 🎉 Flag: {CAUGHT_ALL_THE_PHISH}"
-          : `Du hast ${correctAnswers} von ${emailPool.length} richtig beantwortet.`;
+          ? "Herzlichen Glückwunsch! Du hast alle Mails richtig eingeordnet. 🎉 Flag: {CAUGHT_ALL_THE_PHISH}"
+          : `Du hast ${correctAnswers} von ${emailPool.length} richtig eingeordnet.`;
         result.classList.remove("hidden");
         // Infotext anzeigen
         document.getElementById("info-text").style.display = "block";
