@@ -103,7 +103,7 @@ backButton: true
       <strong>Was macht der Befehl?</strong><br>
       - <code>gobuster</code>: Startet das Tool Gobuster.<br>
       - <code>dir</code>: Gibt an, dass Verzeichnisse gesucht werden sollen.<br>
-      - <code>-u http://192.168.0.10</code>: Definiert die Ziel-URL (hier ein lokaler Server).<br>
+      - <code>-u https://cyberdefenselab.informatik.uni-oldenburg.de</code>: Definiert die Ziel-URL.<br>
       - <code>-w wordlist.txt</code>: Verwendet die angegebene Wortliste (<code>wordlist.txt</code>), um nach Verzeichnissen zu suchen.
     </p>
 
@@ -174,7 +174,6 @@ backButton: true
 
     // Funktion zur Simulation des Gobuster-Scans
     function startGobuster() {
-      const consoleOutput = document.getElementById("console-output");
       let index = 0;
 
       // Initiale Konsolenausgabe
