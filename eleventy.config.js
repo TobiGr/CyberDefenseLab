@@ -10,6 +10,8 @@ module.exports = async function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("confetti.browser.min.js");
     eleventyConfig.addPassthroughCopy("global.css");
     eleventyConfig.addPassthroughCopy("fonts");
+    eleventyConfig.addPassthroughCopy("assets");
+
     // ignoriere ToDo.md-Datei
     eleventyConfig.ignores.add("ToDo.md");
 

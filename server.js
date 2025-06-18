@@ -28,6 +28,9 @@ const server = http.createServer((req, res) => {
         } else if (req.url === '/social-engineering.html') {
             // Social-Engineering-Lab ausliefern
             serveFile('social-engineering.html', res);
+        } else if (req.url === '/assets/social-engineering-qrcode.svg') {
+            // QR-Code für Social Engineering Lab ausliefern
+            serveFile('assets/social-engineering-qrcode.svg', res, "image/svg+xml");
         } else if (req.url === '/updates.html') {
             // Updates und Patches Lab ausliefern
             serveFile('updates.html', res);
