@@ -97,7 +97,7 @@ backButton: true
 
     <p>Nutze den folgenden Befehl, um den Scan korrekt zu starten:</p>
     <div class="shell">
-      gobuster dir -u http://192.168.0.10 -w wordlist.txt
+        gobuster dir -u https://cyberdefenselab.informatik.uni-oldenburg.de -w wordlist.txt
     </div>
     <p>
       <strong>Was macht der Befehl?</strong><br>
@@ -128,27 +128,26 @@ backButton: true
   <script>
     // Liste der zu simulierenden Verzeichnisse
     const directories = [
-      { path: "backup.html", status: 200 },
-      { path: "old-site.html", status: 200 },
+      { path: "admin.html", status: 200 },
+      { path: "assets.html", status: 200 },
+      { path: "backup.html", status: 403 },
+      { path: "contact.html", status: 200 },
+      { path: "old-site.html", status: 403 },
       { path: "social-engineering.html", status: 200 },
       { path: "test.html", status: 403 },
       { path: "bruteforce.html", status: 200 },
       { path: "password-simulator.html", status: 200 },
-      { path: "assets.html", status: 200 },
-      { path: "css.html", status: 403 },
       { path: "global.css", status: 200 },
       { path: "sources.html", status: 200 },
-      { path: "admin.html", status: 200 },
       { path: "secret-flag.html", status: 200 },
       { path: "fred.html", status: 200 },
       { path: "datenschutz.html", status: 200 },
       { path: "social-engineering.html", status: 200 },
-      { path: "hash.html", status: 200 },
-      { path: "kontakt.html", status: 200 }
+      { path: "hash.html", status: 200 }
     ];
 
     // Korrekte Befehlsdefinition
-    const correctCommand = "gobuster dir -u http://192.168.0.10 -w wordlist.txt";
+    const correctCommand = "gobuster dir -u https://cyberdefenselab.informatik.uni-oldenburg.de -w wordlist.txt";
 
     // Funktion zur Überprüfung des eingegebenen Befehls
     function validateCommand() {
