@@ -31,18 +31,16 @@ backButton: true
     }
 {% endcss %}
 
-    <div class="info">
-      <h2>Was sind Hashes und wie funktionieren sie?</h2>
-      <p>
+    <h2>Was sind Hashes und wie funktionieren sie?</h2>
+    <p>
         Ein <strong>Hash</strong> ist das Ergebnis einer kryptografischen <strong>Hashfunktion</strong>. Diese nimmt eine beliebig große Eingabe
         (z. B. eine Datei oder ein Passwort) und berechnet daraus eine <strong>Zeichenkette mit fester Länge</strong>.
         Hashfunktionen sind <strong>Einwegfunktionen</strong>, das bedeutet, der ursprüngliche Wert kann nicht aus dem Hash zurückberechnet werden.
-      </p>
-      <p>
+    </p>
+    <p>
         Zum Beispiel erzeugt der Algorithmus <strong>SHA-256</strong> (Secure Hash Algorithm 256) einen <strong>256-Bit-Hash</strong>, der
         als <strong>64 Zeichen lange Hexadezimalzeichenkette</strong> dargestellt wird.
-      </p>
-    </div>
+    </p>
 
     <div class="info">
       <h3>Wozu werden Hashes verwendet?</h3>
@@ -65,44 +63,45 @@ backButton: true
       </ul>
     </div>
 
-    <div class="info">
-      <h3>Schwachstellen: Rainbow Tables und Hash-Kollisionen</h3>
-      <p>
-        Obwohl Hashes ein starkes Sicherheitsmerkmal sind, gibt es Angriffsmethoden wie <strong>Rainbow Tables</strong>.
-        Dabei handelt es sich um vorberechnete Tabellen mit gängigen Passwörtern und deren Hashes.
-        Ein Angreifer kann einen gestohlenen Hash mit diesen Tabellen abgleichen, um das ursprüngliche Passwort zu ermitteln.
-        Besonders <strong>schwache oder häufig verwendete Passwörter</strong> (z. B. "123456") sind leicht zu knacken.
-      </p>
-      <p>
-        Um dies zu verhindern, wird ein <strong>Salt</strong> eingesetzt. Dabei wird vor dem Hashing eine zufällige Zeichenkette an das Passwort angehängt.
-        Selbst wenn zwei Benutzer dasselbe Passwort haben, ergibt sich durch das Salt ein unterschiedlicher Hashwert.
-        Dadurch werden Rainbow Tables wirkungslos.
-      </p>
-      <p>
-        Eine weitere potenzielle Schwäche sind <strong>Hash-Kollisionen</strong>.
-        Dabei erzeugen zwei verschiedene Eingaben denselben Hash.
-        Moderne Hashfunktionen wie SHA-256 sind so konzipiert, dass solche Kollisionen extrem unwahrscheinlich sind.
-      </p>
-    </div>
-
     <div class="steps">
-      <h2>Aufgabe</h2>
+        <h2>Hashes knacken</h2>
       <p>Finde die ursprünglichen Passwörter der folgenden MD5-Hashes und erhalte die Flag:</p>
 
-      <h3>Schritt 1: Verwende Crackstation</h3>
+
       <p>
-        Öffne <a href="https://crackstation.net" target="_blank">Crackstation</a>. Kopiere die folgenden Hashes in das Eingabefeld:
+        Öffne dafür <a href="https://crackstation.net" target="_blank">Crackstation</a>. Kopiere die folgenden Hashes in das Eingabefeld:
       </p>
       <pre>
 1. 5f4dcc3b5aa765d61d8327deb882cf99
 2. 098f6bcd4621d373cade4e832627b4f6
       </pre>
       <p>Welches Passwort gehört zu den Hashes? Gib eines der Passwörter als Flag ein:</p>
-      <input type="text" id="flag1" placeholder="Flag eingeben">
+      <input type="text" id="flag1" placeholder="Passwort eingeben">
       <button class="btn" onclick="checkFlag(['password', 'test'], '{LET_HIM_COOK}')">Prüfen</button>
     </div>
 
     <div class="steps hidden" id="bonus-task">
+
+        <div class="info">
+            <h3>Schwachstellen: Rainbow Tables und Hash-Kollisionen</h3>
+            <p>
+                Obwohl Hashes ein starkes Sicherheitsmerkmal sind, gibt es Angriffsmethoden wie <strong>Rainbow Tables</strong>.
+                Dabei handelt es sich um vorberechnete Tabellen mit gängigen Passwörtern und deren Hashes.
+                Ein Angreifer kann einen gestohlenen Hash mit diesen Tabellen abgleichen, um das ursprüngliche Passwort zu ermitteln.
+                Besonders <strong>schwache oder häufig verwendete Passwörter</strong> (z. B. "123456") sind leicht zu knacken.
+            </p>
+            <p>
+                Um dies zu verhindern, wird ein <strong>Salt</strong> eingesetzt. Dabei wird vor dem Hashing eine zufällige Zeichenkette an das Passwort angehängt.
+                Selbst wenn zwei Benutzer dasselbe Passwort haben, ergibt sich durch das Salt ein unterschiedlicher Hashwert.
+                Dadurch werden Rainbow Tables wirkungslos.
+            </p>
+            <p>
+                Eine weitere potenzielle Schwäche sind <strong>Hash-Kollisionen</strong>.
+                Dabei erzeugen zwei verschiedene Eingaben denselben Hash.
+                Moderne Hashfunktionen wie SHA-256 sind so konzipiert, dass solche Kollisionen extrem unwahrscheinlich sind.
+            </p>
+        </div>
+
       <h2>Mit Salt arbeiten</h2>
       <p>
         Um Rainbow Tables zu umgehen, wird ein Salt verwendet. Es wird eine zufällige Zeichenkette an das Passwort angehängt, bevor es gehasht wird. Das Ergebnis ist ein einzigartiger Hash, selbst für gleiche Passwörter.
