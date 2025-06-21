@@ -192,19 +192,28 @@ navTitle: Social Engineering Lab
                 text: "Ich werde zuerst meine Kontounterlagen prüfen und Sie zurückrufen.",
                 correct: true,
                 feedback: "Richtig! Du verifizierst die Anfrage, bevor du sensible Daten preisgibst.",
-                finalMessage: "Bankberater: Vielen Dank. Wir warten auf Ihren Rückruf."
+                finalMessage: {
+                  sender: "Bankberater",
+                  text: "Bankberater: Vielen Dank. Wir warten auf Ihren Rückruf."
+                }
               },
               {
                 text: "Hier sind meine Kontodaten: IBAN, BIC und Kontonummer.",
                 correct: false,
                 feedback: "Falsch! Sensible Daten solltest du niemals ohne Überprüfung preisgeben.",
-                finalMessage: "Bankberater: Ihre Daten wurden entgegengenommen – das birgt jedoch ein hohes Sicherheitsrisiko."
+                finalMessage: {
+                  sender: "Bankberater",
+                  text: "Ihre Daten wurden entgegengenommen – das birgt jedoch ein hohes Sicherheitsrisiko."
+                }
               },
               {
                 text: "Naja, mit meiner IBAN kann er ja nichts anfangen. Das sollte die Sache vielleicht schon klären?",
                 correct: false,
                 feedback: "Nicht ausreichend! Auch deine IBAN kann missbraucht werden, da sie zur Identifikation dient.",
-                finalMessage: "Bankberater: Ihre Information ist unvollständig und stellt ein Sicherheitsrisiko dar."
+                finalMessage: {
+                  sender: "Bankberater",
+                  text: "Ihre Information ist unvollständig und stellt ein Sicherheitsrisiko dar."
+                }
               }
             ]
           }
@@ -256,19 +265,28 @@ navTitle: Social Engineering Lab
                 text: "Ich melde den Vorfall direkt beim offiziellen IT-Support.",
                 correct: true,
                 feedback: "Richtig! Du lässt dich nicht vom Gruppendruck beeinflussen und handelst eigenständig.",
-                finalMessage: "IT-Verantwortlicher: Danke, deine Meldung wurde weitergeleitet und wird geprüft."
+                finalMessage: {
+                  sender: "IT-Verantwortlicher",
+                  text: "Danke, deine Meldung wurde weitergeleitet und wird geprüft."
+                }
               },
               {
                 text: "Ich folge Lisa und sende auch meine Zugangsdaten.",
                 correct: false,
                 feedback: "Falsch! Gruppendruck kann dazu verleiten, unüberlegt zu handeln.",
-                finalMessage: "IT-Verantwortlicher: Deine Daten wurden entgegengenommen – das ist jedoch sehr riskant."
+                finalMessage: {
+                  sender: "IT-Verantwortlicher",
+                  text: "Deine Daten wurden entgegengenommen – das ist jedoch sehr riskant."
+                }
               },
               {
                 text: "Ich frage Max, was genau los ist.",
                 correct: true,
                 feedback: "Gut! Es ist absolut legitim, nachzufragen, um die Situation besser zu verstehen.",
-                finalMessage: "Max: Ich bin skeptisch, weil ich solche Anfragen noch nie gehört habe. Es ist besser, wenn du dich selbst absicherst."
+                finalMessage: {
+                  sender: "Max",
+                  text: "Ich bin skeptisch, weil ich solche Anfragen noch nie gehört habe. Es ist besser, wenn du dich selbst absicherst."
+                }
               }
             ]
           }
@@ -295,19 +313,28 @@ navTitle: Social Engineering Lab
                 text: "Ich rufe zuerst das Sekretariat an, um die Anfrage zu verifizieren.",
                 correct: true,
                 feedback: "Richtig! Du überprüfst die Anfrage, bevor du sensible Daten preisgibst.",
-                finalMessage: "Schulleiter: Gut, warte bitte auf die Bestätigung vom Sekretariat und informiere uns dann."
+                finalMessage: {
+                  sender: "Schulleiter",
+                  text: "Gut, warte bitte auf die Bestätigung vom Sekretariat und informiere uns dann."
+                }
               },
               {
                 text: "Ich sende sofort meine Zugangsdaten.",
                 correct: false,
                 feedback: "Falsch! Ohne Verifizierung handelst du zu voreilig.",
-                finalMessage: "Schulleiter: Deine Daten wurden entgegengenommen – das erhöht das Risiko eines Angriffs."
+                finalMessage: {
+                  sender: "Schulleiter",
+                  text: "Deine Daten wurden entgegengenommen – das erhöht das Risiko eines Angriffs."
+                }
               },
               {
                 text: "Ich gebe nur meinen Benutzernamen preis.",
                 correct: false,
                 feedback: "Vorsicht! Selbst ein Benutzername kann sensible Informationen enthalten.",
-                finalMessage: "Schulleiter: Deine Information ist unvollständig und stellt ein Sicherheitsrisiko dar."
+                finalMessage: {
+                  sender: "Schulleiter",
+                  text: "Deine Information ist unvollständig und stellt ein Sicherheitsrisiko dar."
+                }
               }
             ]
           }
@@ -334,19 +361,28 @@ navTitle: Social Engineering Lab
                 text: "Ich kontaktiere zuerst den offiziellen IT-Support der Schule zur Bestätigung.",
                 correct: true,
                 feedback: "Richtig! Überprüfe immer die Echtheit der Anfrage, bevor du sensible Daten preisgibst.",
-                finalMessage: "Iserv-Support: Danke, wir warten auf deine Rückmeldung vom IT-Support."
+                finalMessage: {
+                  sender: "Iserv-Support",
+                  text: "Danke, wir warten auf deine Rückmeldung vom IT-Support."
+                }
               },
               {
                 text: "Hier sind meine Iserv-Zugangsdaten.",
                 correct: false,
                 feedback: "Falsch! Ohne vorherige Verifizierung gibst du unnötig sensible Daten preis.",
-                finalMessage: "Iserv-Support: Deine Daten wurden entgegengenommen – das ist jedoch unsicher."
+                finalMessage: {
+                  sender: "Iserv-Support",
+                  text: "Deine Daten wurden entgegengenommen – das ist jedoch unsicher."
+                }
               },
               {
                 text: "Ich gebe nur meinen Benutzernamen preis, da das reichen sollte.",
                 correct: false,
                 feedback: "Nicht ausreichend! Auch unvollständige Angaben können missbraucht werden.",
-                finalMessage: "Iserv-Support: Deine Information ist unvollständig und stellt ein Risiko dar."
+                finalMessage: {
+                  sender: "Iserv-Support",
+                  text: "Deine Information ist unvollständig und stellt ein Risiko dar."
+                }
               }
             ]
           }
@@ -373,19 +409,28 @@ navTitle: Social Engineering Lab
                 text: "Ich rufe direkt bei ExpressPaket unter der offiziellen Nummer an, um die Zustellung zu klären.",
                 correct: true,
                 feedback: "Richtig! Es ist immer sicherer, direkt über offizielle Kanäle zu verifizieren.",
-                finalMessage: "Paketdienst: Danke, Ihre Anfrage wird über die offizielle Hotline geklärt."
+                finalMessage: {
+                  sender: "Paketdienst",
+                  text: "Danke, Ihre Anfrage wird über die offizielle Hotline geklärt."
+                }
               },
               {
                 text: "Meine Adresse: Musterstraße 12, 12345 Musterstadt, und meine Telefonnummer: 0123 456789.",
                 correct: false,
                 feedback: "Falsch! Geben Sie Ihre persönlichen Daten nicht unüberlegt preis.",
-                finalMessage: "Paketdienst: Ihre Daten wurden notiert – bitte beachten Sie, dass dies ein hohes Risiko darstellt."
+                finalMessage: {
+                  sender: "Paketdienst",
+                  text: "Ihre Daten wurden notiert – bitte beachten Sie, dass dies ein hohes Risiko darstellt."
+                }
               },
               {
                 text: "Ich sende nur meine Telefonnummer, da das genügen sollte.",
                 correct: false,
                 feedback: "Nicht ausreichend! Selbst die Telefonnummer kann für unbefugte Zwecke missbraucht werden.",
-                finalMessage: "Paketdienst: Ihre Information ist unvollständig und birgt ein Sicherheitsrisiko."
+                finalMessage: {
+                  sender: "Paketdienst",
+                  text: "Ihre Information ist unvollständig und birgt ein Sicherheitsrisiko."
+                }
               }
             ]
           }
@@ -439,9 +484,8 @@ navTitle: Social Engineering Lab
       choicesContainer.innerHTML = "";
       appendMessage("System", choice.feedback, "message system-message");
       setTimeout(() => {
-        const scenario = scenarios[currentScenarioIndex];
-        const sender = scenario.conversation[0].sender;
-        appendMessage(sender, choice.finalMessage, "message other");
+        const finalMessage = choice.finalMessage;
+        appendMessage(finalMessage.sender, finalMessage.text, "message other");
         setTimeout(nextScenario, 5000);
       }, 3000);
     }
