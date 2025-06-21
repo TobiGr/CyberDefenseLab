@@ -62,10 +62,14 @@ const server = http.createServer((req, res) => {
         } else if (req.url === '/sources.html') {
             // Quellen-Seite ausliefern
             serveFile('sources.html', res);
-         } else if (req.url === '/assets.html') {
+        } else if (req.url === '/assets.html') {
             // Assets-Seite ausliefern
             serveFile('assets.html', res);
-         } else if (req.url === '/fred.html') {
+        } else if (req.url === '/assets/image%20of%20funny%20cat.jpg') {
+            serveFile('assets/image of funny cat.jpg', res, "image/jpeg");
+        } else if (req.url === '/assets/passwords.pdf') {
+            serveFile('assets/passwords.pdf', res, "application/pdf");
+        } else if (req.url === '/fred.html') {
             // Fred-Seite ausliefern
             serveFile('fred.html', res);
          } else if (req.url === '/cookies.html') {
