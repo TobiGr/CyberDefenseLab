@@ -120,7 +120,9 @@ backButton: true
     </div>
 
   <script>
-    // Liste der zu simulierenden Verzeichnisse
+    // Liste der zu simulierenden Dateien und Verzeichnisse
+    // 403 bedeutet "Forbidden", 200 bedeutet "OK"
+    // 403 auch in server.js eintragen, damit die Simulation funktioniert
     const directories = [
       { path: "admin.html", status: 200 },
       { path: "assets.html", status: 200 },

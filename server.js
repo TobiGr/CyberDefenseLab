@@ -11,6 +11,13 @@ const users = {
     user: "user123"    // Passwort für normalen User
 };
 
+/** Seiten, die im Dirbuster mit Status 403 angegeben werden */
+const dirbuster403 = [
+    "backup.html",
+    "old-site.html",
+    "test.html"
+];
+
 const server = http.createServer((req, res) => {
     if (req.method === 'GET') {
         if (req.url === '/' || req.url === '/index.html') {
@@ -86,6 +93,11 @@ const server = http.createServer((req, res) => {
             serveFile('confetti.browser.min.js', res, "text/javascript");
         } else if (req.url.startsWith('/fonts/NunitoSans') && req.url.endsWith('.ttf')) {
             serveFile(req.url.substring(1), res, "font/ttf");
+        } else if (dirbuster403.includes(req.url.substring(1))) {
+            // 403-Seite
+            res.statusCode = 403;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end('Forbidden: Zugriff auf diese Seite ist nicht erlaubt!');
         } else {
             // 404-Seite
             res.statusCode = 404;
