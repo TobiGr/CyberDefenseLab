@@ -509,7 +509,8 @@
       const checkButton = input.parentElement.querySelector('button');
       if (!checkButton) return;
       const decoded = atob(encodedFlag);
-      if (input.value === decoded) {
+      const decodedNoBraces = decoded.replace(/[{}]/g, ''); // Entferne geschweifte Klammern
+      if (input.value.trim() === decoded || input.value.trim() === decodedNoBraces) {
         showAlertDialog(`<p class="text-center">✅ Richtig!</p><br>Flag für Aufgabe <i>${taskName}</i> akzeptiert.`);
         collectedFlags[taskNumber - 1] = true;
         updateTaskUi(input, checkButton);
