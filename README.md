@@ -55,27 +55,6 @@ Um das Lab lokal auszuführen oder zu hosten, benötigst du:
 
 ---
 
-## Hosting mit Render
-
-### 1. Repository hochladen
-1. Forke dieses Repository oder lade den Code direkt in dein GitHub-Konto hoch.
-2. Melde dich bei [Render](https://render.com/) an.
-
-### 2. Neues Webservice-Projekt erstellen
-1. Klicke auf **"New Web Service"**.
-2. Verbinde dein GitHub-Konto mit Render und wähle dieses Repository aus.
-3. Konfiguriere das Webservice:
-- **Environment:** Node.js
-- **Start Command:** `node server.js`
-- **Port:** `3000` (standardmäßig)
-
-4. Klicke auf **"Deploy"**, um dein Projekt zu starten.
-
-### 3. Zugriff
-Render generiert eine öffentliche URL, über die das Lab zugänglich ist.
-
----
-
 ## Hosting auf Debian/Ubuntu Server
 
 ### 1. Repository auf Server clonen
