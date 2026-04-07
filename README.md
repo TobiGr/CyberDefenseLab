@@ -18,9 +18,6 @@ Das **CyberDefense Lab** bietet praxisnahe Einblicke in zentrale IT-Sicherheitsk
 Um das Lab lokal auszuführen oder zu hosten, benötigst du:
 - **[Node.js](https://nodejs.org)** (Version 16 oder höher)
 - **npm** (Node Package Manager)
-- Optional:
-  - **GitHub-Account** (zum Klonen des Repositories)
-  - **Render-Account** (für kostenloses Hosting)
 
 ---
 
